@@ -61,20 +61,27 @@ public class Main {
         read();
 
          */
-    //hello
+
         BalanceTree tree = new BalanceTree();
         tree.createTree("McDonalds");
+        tree.insert("Panera Bread");
+        tree.insert("The Autozone");
+        tree.insert("Zebra");
+        tree.insert("Apple");
+        tree.insert("Kickstarter");
+        tree.insert("Wal-Mart");
+        tree.insert("Five Guys Burger & Fries");
         read();
 
 
     }
 
     public static void read() throws IOException {
-        Path path = Path.of("/home/ntrut/IdeaProjects/BTreesAssignment/src/com/company/tree.txt");
+        Path path = Path.of("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/tree.txt");
         try (FileChannel channel = FileChannel.open(path,
                 StandardOpenOption.READ)) {
             ByteBuffer buffer = ByteBuffer.allocate(100);
-            channel.read(buffer, 0);
+            channel.read(buffer, 100);
             buffer.flip();
 
             System.out.println(Arrays.toString(buffer.array()));

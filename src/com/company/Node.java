@@ -13,15 +13,15 @@ import java.util.Collections;
 
 public class Node
 {
-    private int num_of_children;
+    private int num_of_keys;
     private boolean leaf;                                                      //0 is false, 1 is true
     private long location_in_file;
-    private final ArrayList<Integer> location_of_children = new ArrayList<Integer>();
+    private final ArrayList<Long> location_of_children = new ArrayList<Long>();
     private final ArrayList<String> Array_of_keys = new ArrayList<String>();        //Array of all keys
     private final ByteStuff.Node[] Array_of_nodes = new ByteStuff.Node[3];     //children nodes
     private static ByteBuffer buf;
 
-    private static final Path path = Paths.get("/home/ntrut/IdeaProjects/BTreesAssignment/src/com/company/tree.txt");
+    private static final Path path = Paths.get("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/tree.txt");
     private static FileChannel indexFile;
     static {
         try {
@@ -36,10 +36,10 @@ public class Node
 
     }
 
-    public Node(ByteBuffer buf) throws UnsupportedEncodingException {
+    public Node createNode(ByteBuffer buf) throws UnsupportedEncodingException {
         /*break up the buffer to get our information*/
         Node node = new Node();
-        node.setNum_of_children(buf.get());
+        node.setNum_of_keys(buf.get());
 
         /*leaf*/
         buf.position(buf.position() + 3);
@@ -54,44 +54,49 @@ public class Node
         node.setLocation_in_file(buf.get());
 
         /*all locations of the children into a array*/
-        for(int i = 0; i < node.getNum_of_children(); i++)
+        if(!node.isLeaf())
         {
-            buf.position(buf.position() + 3);
-            int num = buf.get();
-            node.location_of_children.add(num);
+            for(int i = 0; i < node.getNum_of_keys() + 1; i++)
+            {
+                buf.position(buf.position() + 3);
+                long num = buf.get();
+                node.location_of_children.add(num);
+            }
         }
-
-        System.out.println("Num of children: " + node.getNum_of_children());
-        System.out.println("leaf: " + node.leaf);
-        System.out.println("Location in file: " + node.getLocation_in_file());
-        node.getLocation_of_children().forEach(System.out::println);
-        node.Array_of_keys.forEach(System.out::println);
 
         /*get my keys from the buffer*/
         /*Get the keys, businesses strings*/
         buf.position(buf.position() + 3);
-        for(int i = 0; i < node.getNum_of_children(); i++)
+
+        for(int i = 0; i < node.getNum_of_keys(); i++)
         {
             char s = ' ';
             String str = "";
-            while(s != '\0' && buf.hasRemaining())
+            while(((char) buf.get()) != '\0')
             {
+                buf.position(buf.position() - 1);
                 s = (char) buf.get();
                 //System.out.println(s);
                 str = str + s;
             }
             node.addKeys(str);
-            System.out.println(str);
             if(buf.hasRemaining())
                 buf.position(buf.position() + 2);
         }
 
+        System.out.println("Num of keys: " + node.getNum_of_keys());
+        System.out.println("leaf: " + node.leaf);
+        System.out.println("Location in file: " + node.getLocation_in_file());
+        node.getLocation_of_children().forEach(System.out::println);
+        node.Array_of_keys.forEach(System.out::println);
+
+        return node;
     }
 
     public void write() throws IOException
     {
 
-        Path path = Path.of("/home/ntrut/IdeaProjects/BTreesAssignment/src/com/company/tree.txt");
+        Path path = Path.of("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/tree.txt");
         try (FileChannel channel = FileChannel.open(path,
                 StandardOpenOption.WRITE)) {
 
@@ -101,12 +106,11 @@ public class Node
             temp = ByteBuffer.allocate(100);
             channel.write(temp, location_in_file * 100L);
 
-
             buf = ByteBuffer.allocate(100);
 
             /*num_of_children, leaf, location_in_file, location_of_children, all keys
              * offset of 2 in my bytebuffers*/
-            buf.put((byte) num_of_children);
+            buf.put((byte) num_of_keys);
             if(leaf)
             {
                 buf.position(buf.position() + 3);
@@ -123,7 +127,7 @@ public class Node
             buf.put((byte) location_in_file);
 
             /*all locations of the children*/
-            for (int location_of_child : location_of_children) {
+            for (long location_of_child : location_of_children) {
                 buf.position(buf.position() + 3);
                 buf.put((byte) location_of_child);
             }
@@ -143,12 +147,16 @@ public class Node
 
     public void addKeys(String business)
     {
-        this.Array_of_keys.add(business);
+        Array_of_keys.add(business);
         Collections.sort(this.Array_of_keys);
-        this.setNum_of_children(num_of_children++);
     }
 
-    public void addLocations(int loc)
+    public void incNumKeys()
+    {
+        this.num_of_keys++;
+    }
+
+    public void addLocations(long loc)
     {
         location_of_children.add(loc);
     }
@@ -159,15 +167,15 @@ public class Node
         indexFile.read(buf,pos * 100L);
         buf.flip();
         //System.out.println(Arrays.toString(buf.array()));
-        return new Node(buf);
+        return createNode(buf);
     }
 
-    public int getNum_of_children() {
-        return num_of_children;
+    public int getNum_of_keys() {
+        return num_of_keys;
     }
 
-    public void setNum_of_children(int num_of_children) {
-        this.num_of_children = num_of_children;
+    public void setNum_of_keys(int num_of_keys) {
+        this.num_of_keys = num_of_keys;
     }
 
     public boolean isLeaf() {
@@ -186,7 +194,19 @@ public class Node
         this.location_in_file = location_in_file;
     }
 
-    public ArrayList<Integer> getLocation_of_children() {
+    public ArrayList<Long> getLocation_of_children() {
         return location_of_children;
+    }
+
+    public void setLocation_in_file(long location_in_file) {
+        this.location_in_file = location_in_file;
+    }
+
+    public ArrayList<String> getArray_of_keys() {
+        return Array_of_keys;
+    }
+
+    public ByteStuff.Node[] getArray_of_nodes() {
+        return Array_of_nodes;
     }
 }

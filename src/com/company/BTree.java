@@ -190,7 +190,7 @@ public class BTree
     public int getSide(Node t, String business)
     {
 
-        if(t.getNum_of_keys() == 1)
+        if(t.getNum_of_keys() == 2813)
         {
             /*the string is less than or equal to the only key, means that we have to go to the left child*/
             if(business.compareTo(t.getArray_of_keys().get(0)) < 0 || business.compareTo(t.getArray_of_keys().get(0)) == 0)
