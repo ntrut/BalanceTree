@@ -6,6 +6,7 @@ public class BalanceTree
 {
     private Node root;
 
+
     public void createTree(String businessName) throws IOException {
         root = new Node();
         root.setLeaf(true);
