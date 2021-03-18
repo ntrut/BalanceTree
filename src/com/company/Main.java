@@ -21,46 +21,57 @@ public class Main {
        Node node = new Node();
         Node node2 = new Node();
         Node node3= new Node();
+        Node node4= new Node();
 
-        node.setNum_of_children(2);
+        node.setNum_of_keys(2);
         node.setLeaf(false);
         node.setLocation_in_file(0);
-        node.addKeys("Mc Donalds");
+        node.setLocation_of_parent(-1);
+        node.addKeys("McDonalds");
         node.addKeys("KFC");
         node.addLocations(1);
         node.addLocations(2);
+        node.addLocations(3);
         node.write();
-        Node temp = node.read(0);
+        node.read(0);
+        BalanceTree tree = new BalanceTree();
+
 
 
         System.out.println("****************************************************");
 
-        node2.setNum_of_children(1);
+        node2.setNum_of_keys(1);
         node2.setLeaf(true);
+        node2.setLocation_of_parent(-1);
         node2.setLocation_in_file(1);
-        node2.addLocations(4);
-        node2.addKeys("Panera Bread");
+        node2.addKeys("Zebra");
         node2.write();
-        Node temp2 = node2.read(1);
 
         System.out.println("*****************************************************");
 
-        node3.setNum_of_children(3);
+        node3.setNum_of_keys(1);
         node3.setLeaf(false);
-        node3.setLocation_in_file(0);
+        node3.setLocation_of_parent(-1);
+        node3.setLocation_in_file(2);
         node3.addKeys("Dance Club Ukr");
-        node3.addKeys("Wegmans");
-        node3.addKeys("The Autozone");
-        node3.addLocations(1);
-        node3.addLocations(2);
-        node3.addLocations(3);
         node3.write();
-        Node temp3 = node3.read(0);
+
+        node4.setNum_of_keys(2);
+        node4.setLeaf(false);
+        node4.setLocation_of_parent(-1);
+        node4.setLocation_in_file(3);
+        node4.addKeys("okay");
+        node4.addKeys("target");
+        node4.write();
 
 
+
+        tree.sortChildren(node);
         read();
 
          */
+
+
 
         BalanceTree tree = new BalanceTree();
         tree.createTree("McDonalds");
@@ -70,9 +81,7 @@ public class Main {
         tree.insert("Apple");
         tree.insert("Kickstarter");
         tree.insert("Wal-Mart");
-        tree.insert("Five Guys Burger & Fries");
         read();
-
 
     }
 
@@ -80,8 +89,8 @@ public class Main {
         Path path = Path.of("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/tree.txt");
         try (FileChannel channel = FileChannel.open(path,
                 StandardOpenOption.READ)) {
-            ByteBuffer buffer = ByteBuffer.allocate(100);
-            channel.read(buffer, 100);
+            ByteBuffer buffer = ByteBuffer.allocate(200);
+            channel.read(buffer, 200);
             buffer.flip();
 
             System.out.println(Arrays.toString(buffer.array()));

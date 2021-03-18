@@ -14,11 +14,11 @@ import java.util.Collections;
 public class Node
 {
     private int num_of_keys;
-    private boolean leaf;                                                      //0 is false, 1 is true
+    private boolean leaf;                                                           //0 is false, 1 is true
     private long location_in_file;
-    private final ArrayList<Long> location_of_children = new ArrayList<Long>();
+    private ArrayList<Long> location_of_children = new ArrayList<Long>();
     private final ArrayList<String> Array_of_keys = new ArrayList<String>();        //Array of all keys
-    private final ByteStuff.Node[] Array_of_nodes = new ByteStuff.Node[3];     //children nodes
+    private long location_of_parent;
     private static ByteBuffer buf;
 
     private static final Path path = Paths.get("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/tree.txt");
@@ -53,6 +53,10 @@ public class Node
         buf.position(buf.position() + 3);
         node.setLocation_in_file(buf.get());
 
+        /*parent location in file*/
+        buf.position(buf.position() + 3);
+        node.setLocation_of_parent(buf.get());
+
         /*all locations of the children into a array*/
         if(!node.isLeaf())
         {
@@ -84,15 +88,20 @@ public class Node
                 buf.position(buf.position() + 2);
         }
 
-        System.out.println("Num of keys: " + node.getNum_of_keys());
-        System.out.println("leaf: " + node.leaf);
-        System.out.println("Location in file: " + node.getLocation_in_file());
-        node.getLocation_of_children().forEach(System.out::println);
-        node.Array_of_keys.forEach(System.out::println);
 
         return node;
     }
-
+    public void print()
+    {
+        System.out.println("*******************************************");
+        System.out.println("Num of keys: " + this.num_of_keys);
+        System.out.println("leaf: " + this.leaf);
+        System.out.println("Location in file: " + this.location_in_file);
+        System.out.println("Location of parent: " + this.getLocation_of_parent());
+        this.getLocation_of_children().forEach(System.out::println);
+        this.Array_of_keys.forEach(System.out::println);
+        System.out.println("*******************************************");
+    }
     public void write() throws IOException
     {
 
@@ -125,6 +134,10 @@ public class Node
             /*location in file */
             buf.position(buf.position() + 3);
             buf.put((byte) location_in_file);
+
+            /*parent node location*/
+            buf.position(buf.position() + 3);
+            buf.put((byte) location_of_parent);
 
             /*all locations of the children*/
             for (long location_of_child : location_of_children) {
@@ -198,6 +211,12 @@ public class Node
         return location_of_children;
     }
 
+    public void setLocation_of_children(ArrayList<Long> array)
+    {
+        this.location_of_children = array;
+    }
+
+
     public void setLocation_in_file(long location_in_file) {
         this.location_in_file = location_in_file;
     }
@@ -206,7 +225,13 @@ public class Node
         return Array_of_keys;
     }
 
-    public ByteStuff.Node[] getArray_of_nodes() {
-        return Array_of_nodes;
+    public long getLocation_of_parent() {
+        return location_of_parent;
     }
+
+    public void setLocation_of_parent(long location_of_parent) {
+        this.location_of_parent = location_of_parent;
+    }
+
+
 }

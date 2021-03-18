@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class BalanceTree
 {
@@ -12,8 +13,10 @@ public class BalanceTree
         root.setLeaf(true);
         root.addKeys(businessName);
         root.incNumKeys();
+        root.setLocation_of_parent(-1);     //no parent
         root.setLocation_in_file(locations);
         root.write();
+        root.read(0);
     }
     public long newLocation()
     {
@@ -34,6 +37,7 @@ public class BalanceTree
                 splitRoot();
             }
             root.write();
+            root.print();
         }
         else
         {
@@ -60,18 +64,63 @@ public class BalanceTree
             }
             temp.addKeys(business);
             temp.incNumKeys();
-            /*call a split here*/
             temp.write();
-            temp.read(temp.getLocation_in_file());
+            if(temp.getNum_of_keys() == 3)
+            {
+                //splitChild(temp);
+            }
+            temp.print();
         }
 
     }
 
-
-
-    public void splitChild(Node parent, Node child)
-    {
+    public void splitChild(Node child) throws IOException {
         /*split leaf node*/
+        if(child.isLeaf())
+        {
+            Node temp = child.read(child.getLocation_of_parent());
+            if(temp.getNum_of_keys() == 1)
+            {
+                temp.addKeys(child.getArray_of_keys().remove(1));
+                temp.incNumKeys();
+
+                /*create new node*/
+                Node newNode = new Node();
+                newNode.setLocation_in_file(newLocation());
+                newNode.addKeys(child.getArray_of_keys().remove(1));
+
+                /*set num of keys*/
+                newNode.setNum_of_keys(1);
+                child.setNum_of_keys(1);
+
+                /*set leaf*/
+                newNode.setLeaf(false);
+
+                /*set parent of new node*/
+                newNode.setLocation_of_parent(temp.getLocation_of_parent());
+
+                /*add new node to the parent children*/
+                temp.addLocations(newNode.getLocation_in_file());
+                sortChildren(temp);
+
+                newNode.write();
+            }
+            else
+            {
+                /*if there are 2 keys in the parent node*/
+            }
+
+        }
+        else if(child.getLocation_of_parent() == -1)    //has no parent, which means its the root
+        {
+
+        }
+        else
+        {
+            /*internal node split*/
+        }
+
+
 
     }
 
@@ -83,6 +132,10 @@ public class BalanceTree
         left.setLeaf(true);
         right.setLeaf(true);
         root.setLeaf(false);
+
+        /*set parent of the nodes*/
+        left.setLocation_of_parent(root.getLocation_in_file());
+        right.setLocation_of_parent(root.getLocation_in_file());
 
         /*add the keys to the correct spots*/
         right.addKeys(root.getArray_of_keys().remove(2));
@@ -139,5 +192,41 @@ public class BalanceTree
                 return 1; //middle child
         }
 
+    }
+
+    public void sortChildren(Node t) throws IOException {
+        ArrayList<Long> location_of_children = new ArrayList<Long>();
+        t.print();
+        for(int i = 0; i < t.getLocation_of_children().size(); i++)
+        {
+                Node min = new Node();
+                min = min.read(t.getLocation_of_children().get(i));
+                int count = i + 1;
+                int removeLoc = 0;
+                while(count < t.getLocation_of_children().size())
+                {
+                    Node compare = new Node();
+                    compare = compare.read(t.getLocation_of_children().get(count));
+
+                    if(min.getArray_of_keys().get(0).compareTo(compare.getArray_of_keys().get(0)) > 0)
+                    {
+                        min = compare;
+                        removeLoc = count;
+                    }
+
+                    count++;
+                }
+                System.out.println(min.getArray_of_keys().get(0));
+                location_of_children.add(min.getLocation_in_file());
+                if(t.getLocation_of_children().size() == 1)
+                {
+                    t.getLocation_of_children().remove(0);
+                }
+                else
+                    t.getLocation_of_children().remove(removeLoc);
+        }
+        t.setLocation_of_children(location_of_children);
+        t.write();
+        t.print();
     }
 }
