@@ -71,17 +71,23 @@ public class Main {
 
          */
 
-
-
         BalanceTree tree = new BalanceTree();
-        tree.createTree("McDonalds");
-        tree.insert("Panera Bread");
-        tree.insert("The Autozone");
-        tree.insert("Zebra");
+        tree.createTree("Buffalo Wild Wings");
+        tree.insert("American");
+        tree.insert("Chicfila");
+        tree.insert("Chiptole");
+        tree.insert("Taco Bell");
+        tree.insert("Burger King");
+        tree.insert("Lucky Charms");
+        tree.insert("Phar");
         tree.insert("Apple");
-        tree.insert("Kickstarter");
-        tree.insert("Wal-Mart");
+        tree.insert("Wipp");
+        tree.insert("Mayo");
+        tree.insert("Aaaa");
+        tree.insert("Nest");
         read();
+        tree.printRoot();
+        readNode();
 
     }
 
@@ -90,7 +96,7 @@ public class Main {
         try (FileChannel channel = FileChannel.open(path,
                 StandardOpenOption.READ)) {
             ByteBuffer buffer = ByteBuffer.allocate(200);
-            channel.read(buffer, 200);
+            channel.read(buffer, 5);
             buffer.flip();
 
             System.out.println(Arrays.toString(buffer.array()));
@@ -99,5 +105,12 @@ public class Main {
         }
     }
 
+    public static void readNode() throws IOException {
+        Node test = new Node();
+        test = test.read(6);
+        System.out.println("***** TESTING *******");
+        test.print();
+
+    }
 
 }
