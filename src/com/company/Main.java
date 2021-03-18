@@ -89,6 +89,11 @@ public class Main {
         tree.insert("Ashe");
         tree.insert("ABCD");
         tree.insert("Naza");
+        tree.insert("Dunk");
+        tree.insert("Koko");
+        tree.insert("Dort");
+        tree.insert("Earth");
+        tree.insert("Look");
         read();
         tree.printRoot();
         readNode();
@@ -111,7 +116,7 @@ public class Main {
 
     public static void readNode() throws IOException {
         Node test = new Node();
-        test = test.read(4);
+        test = test.read(14);
         System.out.println("***** TESTING *******");
         test.print();
 

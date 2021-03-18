@@ -87,9 +87,8 @@ public class BalanceTree
         /*split leaf node*/
         if(child.isLeaf())
         {
-            Node temp = child.read(child.getLocation_of_parent());
+                Node temp = child.read(child.getLocation_of_parent());
 
-                System.out.println("EFSDFSFSDF");
                 temp.addKeys(child.getArray_of_keys().remove(1));
                 temp.incNumKeys();
 
@@ -113,6 +112,7 @@ public class BalanceTree
 
                 newNode.write();
                 child.write();
+                temp.write();
                 sortChild(temp);
                 if(temp.getLocation_of_parent() == -1)
                     root = temp;
@@ -179,9 +179,61 @@ public class BalanceTree
                 root = newRoot;
             }
         }
+        else if(child.getArray_of_keys().size() == 3 && child.getLocation_of_children().size() == 4)
+        {
+
+            /*internal node split*/
+
+            /*create a new node for the right child, and get parent from this current node*/
+            Node newRight = new Node();
+            Node parent = new Node();
+            parent = parent.read(child.getLocation_of_parent());
+            newRight.setLocation_in_file(newLocation());
+
+            /*send the middle key to the parent*/
+            parent.addKeys(child.getArray_of_keys().remove(1));
+            parent.incNumKeys();
+
+            /*set the new right node*/
+            newRight.setLeaf(false);
+            newRight.addKeys(child.getArray_of_keys().remove(1));
+            newRight.incNumKeys();
+            newRight.setLocation_of_parent(parent.getLocation_in_file());
+            newRight.addLocations(child.getLocation_of_children().remove(2));
+            newRight.addLocations(child.getLocation_of_children().remove(2));
+
+            /*change the two children of newRight parent to newRight*/
+            Node temp = new Node();
+            Node temp2 = new Node();
+            temp = temp.read(newRight.getLocation_of_children().get(0));
+            temp2 = temp2.read(newRight.getLocation_of_children().get(1));
+            temp.setLocation_of_parent(newRight.getLocation_in_file());
+            temp2.setLocation_of_parent(newRight.getLocation_in_file());
+
+            /*set the child which is the left*/
+            child.setNum_of_keys(1);
+
+            /*add the new location of the right to the parent*/
+            parent.addLocations(newRight.getLocation_in_file());
+
+            /*write*/
+            parent.write();
+            newRight.write();
+            child.write();
+            temp.write();
+            temp2.write();
+
+            sortChild(parent);
+
+            /*split the parent if we need to*/
+            if(parent.getNum_of_keys() == 3)
+                splitChild(parent);
+
+        }
+
         else
         {
-            /*internal node split*/
+            System.out.println("something failed???");
         }
 
 
@@ -264,26 +316,27 @@ public class BalanceTree
         int removeLoc = 0;
         while(t.getLocation_of_children().size() != 0)
         {
+
             Node min = new Node();
 
             min = min.read(t.getLocation_of_children().get(0));
 
             for(int i = 0; i < t.getLocation_of_children().size(); i++)
             {
-                int next = i + 1;
 
-                if(t.getLocation_of_children().size() != 1 && t.getLocation_of_children().size() != next)
+                if(t.getLocation_of_children().size() != 1 && t.getLocation_of_children().size() != (i + 1))
                 {
                     Node compare = new Node();
-                    compare = compare.read(t.getLocation_of_children().get(next));
+                    compare = compare.read(t.getLocation_of_children().get(i + 1));
 
                     if(min.getArray_of_keys().get(0).compareTo(compare.getArray_of_keys().get(0)) > 0)
                     {
                         min = compare;
-                        removeLoc = next;
+                        removeLoc = i + 1;
                     }
                 }
             }
+
 
             location_of_children.add(min.getLocation_in_file());
             if(t.getLocation_of_children().size() == 1)
@@ -292,6 +345,7 @@ public class BalanceTree
             }
             else
                 t.getLocation_of_children().remove(removeLoc);
+            removeLoc = 0;
 
         }
         t.setLocation_of_children(location_of_children);
