@@ -123,8 +123,8 @@ public class BalanceTree
 
 
                 System.out.println("********************NEW NODE AFTER SPLITTING LEAF *********************");
-                newNode.print();
-                child.print();
+                //newNode.print();
+                //child.print();
 
 
 
@@ -351,7 +351,7 @@ public class BalanceTree
         t.setLocation_of_children(location_of_children);
         t.write();
         System.out.println("***************** AFTER SORTING");
-        t.print();
+        //t.print();
     }
 
     public void printRoot() throws IOException {

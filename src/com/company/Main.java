@@ -1,17 +1,14 @@
 package com.company;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.*;
+
 
 public class Main {
 
@@ -71,8 +68,50 @@ public class Main {
         read();
 
          */
+        String[] names_array = new String[10000];
+        int index = 0;
+        try{
+            File file = new File("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/Businesses_names.txt");
+            Scanner read = new Scanner(file);
+
+            while(read.hasNextLine())
+            {
+                Pattern p = Pattern.compile("^[a-zA-Z0-9_ &-'+,.\\\"-/!|@:;]*$");
+
+                String line = read.nextLine();
+                Matcher m = p.matcher(line);
+                boolean b;
+                if(b = m.matches())
+                {
+                    names_array[index] = line;
+                }
+                index++;
+            }
+            read.close();
+        }catch(FileNotFoundException e) {
+            System.out.println("Error!");
+            e.printStackTrace();
+        }
+
+
 
         BalanceTree tree = new BalanceTree();
+        tree.createTree(names_array[0]);
+
+        for(int i = 1; i < names_array.length; i++)
+        {
+
+            if(names_array[i] != null)
+            {
+
+                tree.insert(names_array[i]);
+            }
+
+        }
+
+
+
+        /*
         tree.createTree("Buffalo Wild Wings");
         tree.insert("American");
         tree.insert("Chicfila");
@@ -108,6 +147,8 @@ public class Main {
         tree.insert("Cake");
         tree.insert("Whyy");
         read();
+        */
+
         tree.printRoot();
         readNode();
         /*Aook Abea Akkk Acorn*/

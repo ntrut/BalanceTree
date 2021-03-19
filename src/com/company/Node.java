@@ -129,10 +129,10 @@ public class Node
             /*set that index in the file to null so we can update it
              * pretty much overwriting it instead of updating*/
             ByteBuffer temp;
-            temp = ByteBuffer.allocate(250);
-            channel.write(temp, location_in_file * 250L);
+            temp = ByteBuffer.allocate(500);
+            channel.write(temp, location_in_file * 500L);
 
-            buf = ByteBuffer.allocate(250);
+            buf = ByteBuffer.allocate(500);
 
             /*num_of_children, leaf, location_in_file, location_of_children, all keys
              * offset of 2 in my bytebuffers*/
@@ -176,7 +176,7 @@ public class Node
             }
 
             buf.flip();
-            channel.write(buf, location_in_file * 250L);
+            channel.write(buf, location_in_file * 500L);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -200,8 +200,8 @@ public class Node
 
     /*read from the file and return that node from the file??*/
     public Node read(long pos) throws IOException {
-        buf = ByteBuffer.allocate(250);
-        indexFile.read(buf,pos * 250L);
+        buf = ByteBuffer.allocate(500);
+        indexFile.read(buf,pos * 500L);
         buf.flip();
         //System.out.println(Arrays.toString(buf.array()));
         return createNode(buf);
