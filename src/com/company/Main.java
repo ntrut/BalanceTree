@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -94,10 +95,20 @@ public class Main {
         tree.insert("Dort");
         tree.insert("Earth");
         tree.insert("Look");
+        tree.insert("Zebra");
+        tree.insert("Octo");
+        tree.insert("Kyyy");
+        tree.insert("Kill");
+        tree.insert("Line");
+        tree.insert("Last");
+        tree.insert("Aook");
+        tree.insert("Abea");
+        tree.insert("Akkk");
+        tree.insert("Acorn");
         read();
         tree.printRoot();
         readNode();
-
+        /*Aook Abea Akkk Acorn*/
     }
 
     public static void read() throws IOException {
@@ -115,10 +126,22 @@ public class Main {
     }
 
     public static void readNode() throws IOException {
+
         Node test = new Node();
-        test = test.read(14);
-        System.out.println("***** TESTING *******");
-        test.print();
+        Scanner myObj = new Scanner(System.in);
+        int stuff = 0;
+
+        while(stuff != -1)
+        {
+            System.out.print("Enter Node Location: ");
+            stuff = myObj.nextInt();
+
+            test = test.read(stuff);
+            System.out.println("***** TESTING *******");
+            test.print();
+        }
+
+
 
     }
 
