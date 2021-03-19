@@ -105,6 +105,8 @@ public class Main {
         tree.insert("Abea");
         tree.insert("Akkk");
         tree.insert("Acorn");
+        tree.insert("Cake");
+        tree.insert("Whyy");
         read();
         tree.printRoot();
         readNode();
@@ -140,8 +142,6 @@ public class Main {
             System.out.println("***** TESTING *******");
             test.print();
         }
-
-
 
     }
 

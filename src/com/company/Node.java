@@ -51,11 +51,11 @@ public class Node
 
         /*location in file*/
         buf.position(buf.position() + 3);
-        node.setLocation_in_file(buf.get());
+        node.setLocation_in_file(getLongFromFile(buf));
 
         /*parent location in file*/
         buf.position(buf.position() + 3);
-        node.setLocation_of_parent(buf.get());
+        node.setLocation_of_parent(getLongFromFile(buf));
 
         /*all locations of the children into a array*/
         if(!node.isLeaf())
@@ -63,8 +63,7 @@ public class Node
             for(int i = 0; i < node.getNum_of_keys() + 1; i++)
             {
                 buf.position(buf.position() + 3);
-                long num = buf.get();
-                node.location_of_children.add(num);
+                node.location_of_children.add(getLongFromFile(buf));
             }
         }
 
@@ -91,6 +90,22 @@ public class Node
 
         return node;
     }
+
+    public long getLongFromFile(ByteBuffer buf)
+    {
+        String s = "";
+        char ch = ' ';
+        while(((char) buf.get()) != '\0')
+        {
+            buf.position(buf.position() - 1);
+            ch = (char) buf.get();
+            //System.out.println(s);
+            s = s + ch;
+        }
+        buf.position(buf.position() - 1);
+        return Long.parseLong(s);
+    }
+
     public void print()
     {
         System.out.println("*******************************************");
@@ -114,10 +129,10 @@ public class Node
             /*set that index in the file to null so we can update it
              * pretty much overwriting it instead of updating*/
             ByteBuffer temp;
-            temp = ByteBuffer.allocate(100);
-            channel.write(temp, location_in_file * 100L);
+            temp = ByteBuffer.allocate(250);
+            channel.write(temp, location_in_file * 250L);
 
-            buf = ByteBuffer.allocate(100);
+            buf = ByteBuffer.allocate(250);
 
             /*num_of_children, leaf, location_in_file, location_of_children, all keys
              * offset of 2 in my bytebuffers*/
@@ -133,18 +148,25 @@ public class Node
                 buf.put((byte) 0);
             }
 
-            /*location in file */
+            /*location in file
+            * change to string*/
             buf.position(buf.position() + 3);
-            buf.put((byte) location_in_file);
+            String d = String.valueOf(location_in_file);
+            buf.put(d.getBytes(StandardCharsets.UTF_8));
 
-            /*parent node location*/
+            /*parent node location
+            * change to string*/
             buf.position(buf.position() + 3);
-            buf.put((byte) location_of_parent);
+            String s = String.valueOf(location_of_parent);
+            buf.put(s.getBytes(StandardCharsets.UTF_8));
 
-            /*all locations of the children*/
+            /*all locations of the children
+            * change to strings
+            * */
             for (long location_of_child : location_of_children) {
                 buf.position(buf.position() + 3);
-                buf.put((byte) location_of_child);
+                String l = String.valueOf(location_of_child);
+                buf.put(l.getBytes(StandardCharsets.UTF_8));
             }
 
             /*all keys*/
@@ -154,7 +176,7 @@ public class Node
             }
 
             buf.flip();
-            channel.write(buf, location_in_file * 100L);
+            channel.write(buf, location_in_file * 250L);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -178,8 +200,8 @@ public class Node
 
     /*read from the file and return that node from the file??*/
     public Node read(long pos) throws IOException {
-        buf = ByteBuffer.allocate(100);
-        indexFile.read(buf,pos * 100L);
+        buf = ByteBuffer.allocate(250);
+        indexFile.read(buf,pos * 250L);
         buf.flip();
         //System.out.println(Arrays.toString(buf.array()));
         return createNode(buf);
