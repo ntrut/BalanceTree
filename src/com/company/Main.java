@@ -14,62 +14,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException
     {
-
+        HashMapThingyMAbob test = new HashMapThingyMAbob();
+        test.put("Carlos Santo, NMD", "I love this Doc! He's also a yogi. Straight shooter, he has ideas from behavior modification to supplements to treatment. He has been very helpful with everything from thyroid issues to knee stuff. Solid Dude.");
+        test.put("The Range At Lake Norman", "Driving more than an half-hour to get to a gun range was getting old. I was so happy to see this range open up in Cornelius. They have all the amenities that you would expect a range to have for modern shooters. I come here for recreational purposes and have found the range more than suitable. They have fully electronic systems and the lanes are wide and not tight like many other ranges. They also offer memberships that are competitive to some of the other ranges around the area. Daily lane rates are a bit pricy, but considering their location they can charge that much. \n\nHowever, stray away from the touristic prices for weapons and ammo. There are many other stores that just sell and you'll want to visit those. The prices they quoted me were $200 more than several other stores and I just couldn't bite that bullet. \n\nCome here for the range and range only.");
+        test.printAll();
         /*
-       Node node = new Node();
-        Node node2 = new Node();
-        Node node3= new Node();
-        Node node4= new Node();
-
-        node.setNum_of_keys(2);
-        node.setLeaf(false);
-        node.setLocation_in_file(0);
-        node.setLocation_of_parent(-1);
-        node.addKeys("McDonalds");
-        node.addKeys("KFC");
-        node.addLocations(1);
-        node.addLocations(2);
-        node.addLocations(3);
-        node.write();
-        node.read(0);
-        BalanceTree tree = new BalanceTree();
-
-
-
-        System.out.println("****************************************************");
-
-        node2.setNum_of_keys(1);
-        node2.setLeaf(true);
-        node2.setLocation_of_parent(-1);
-        node2.setLocation_in_file(1);
-        node2.addKeys("Zebra");
-        node2.write();
-
-        System.out.println("*****************************************************");
-
-        node3.setNum_of_keys(1);
-        node3.setLeaf(false);
-        node3.setLocation_of_parent(-1);
-        node3.setLocation_in_file(2);
-        node3.addKeys("Dance Club Ukr");
-        node3.write();
-
-        node4.setNum_of_keys(2);
-        node4.setLeaf(false);
-        node4.setLocation_of_parent(-1);
-        node4.setLocation_in_file(3);
-        node4.addKeys("okay");
-        node4.addKeys("target");
-        node4.write();
-
-
-
-        tree.sortChildren(node);
-        read();
-
-         */
         String[] names_array = new String[10000];
         int index = 0;
+        int check = 0;
         try{
             File file = new File("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/Businesses_names.txt");
             Scanner read = new Scanner(file);
@@ -83,6 +35,7 @@ public class Main {
                 boolean b;
                 if(b = m.matches())
                 {
+                    check++;
                     names_array[index] = line;
                 }
                 index++;
@@ -109,7 +62,7 @@ public class Main {
 
         }
 
-
+         */
 
         /*
         tree.createTree("Buffalo Wild Wings");
@@ -149,8 +102,10 @@ public class Main {
         read();
         */
 
-        tree.printRoot();
-        readNode();
+       // tree.printRoot();
+        //System.out.println("TOTAL STRINGS: " + check);
+        //readNode();
+
         /*Aook Abea Akkk Acorn*/
     }
 
