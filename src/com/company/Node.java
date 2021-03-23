@@ -16,7 +16,7 @@ public class Node
     private int num_of_keys;
     private boolean leaf;                                                           //0 is false, 1 is true
     private long location_in_file;
-    private ArrayList<Long> location_of_children = new ArrayList<Long>();
+    private ArrayList<Long> location_of_children = new ArrayList<Long>();            // 1 2 3 4 -> 3 2 1 4
     private final ArrayList<String> Array_of_keys = new ArrayList<String>();        //Array of all keys
     private long location_of_parent;
     private static ByteBuffer buf;

@@ -318,7 +318,6 @@ public class BalanceTree
         {
 
             Node min = new Node();
-
             min = min.read(t.getLocation_of_children().get(0));
 
             for(int i = 0; i < t.getLocation_of_children().size(); i++)

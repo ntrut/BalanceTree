@@ -1,19 +1,21 @@
 package com.company;
 
-import java.io.Serializable;
-import java.util.Hashtable;
 
-public class HashMapThingyMAbob implements Serializable
+import java.util.Hashtable;
+import java.util.Locale;
+
+public class HashMapThingyMAbob implements java.io.Serializable
 {
    private final int size = 8;
    private Node[] table = new Node[size];
    private int count = 0;
 
-   static class Node
+   static class Node implements java.io.Serializable
    {
        private String key;
        private Hashtable<String, Integer> freqTable = new Hashtable<String, Integer>();
        private Node next;
+
 
 
        public String getKey() {
@@ -29,9 +31,10 @@ public class HashMapThingyMAbob implements Serializable
        public void setFreqTable(Hashtable<String, Integer> freqTable) {
            this.freqTable = freqTable;
        }
-       public Node(String business, Hashtable<String, Integer> freqTable) {
+       public Node(String business, Hashtable<String, Integer> freqTable, Node next) {
            this.key = business;
            this.freqTable = freqTable;
+           this.next = next;
        }
        public Node getNext() {
            return next;
@@ -41,7 +44,27 @@ public class HashMapThingyMAbob implements Serializable
        }
    }
 
-   public void put(String key, String review)
+    public int getSize() {
+        return size;
+    }
+
+    public Node[] getTable() {
+        return table;
+    }
+
+    public void setTable(Node[] table) {
+        this.table = table;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public void put(String key, String review)
    {
        int asciiCODE = key.hashCode();     //sum of ASCII codes
        int index = asciiCODE & (table.length - 1);   // gets the index number of the string
@@ -55,7 +78,7 @@ public class HashMapThingyMAbob implements Serializable
            }
        }
        count++;
-       table[index] = new Node(key, getFrequencies(review));
+       table[index] = new Node(key, getFrequencies(review), table[index]);
        /*RESIZE*/
        if(((double) count / (double)table.length) > 0.75)
        {
@@ -70,9 +93,12 @@ public class HashMapThingyMAbob implements Serializable
         Hashtable<String, Integer> freqTable = new Hashtable<String, Integer>();
 
         review.replace(".", "");
+        review.replace(",", "");
+        review.replace("\n", "");
         String[] words = review.split("\\W");
         for (String word : words)
         {
+            word = word.toLowerCase();
             if(freqTable.containsKey(word))
             {
                 int i = freqTable.get(word) + 1;
@@ -115,7 +141,7 @@ public class HashMapThingyMAbob implements Serializable
             {
                 int h = e.getKey().hashCode();
                 int index = h & (newTable.length - 1);
-                newTable[index] = new Node(e.getKey(), e.getFreqTable());
+                newTable[index] = new Node(e.getKey(), e.getFreqTable(), newTable[index]);
             }
 
         }
