@@ -1,8 +1,8 @@
 package com.company;
 
-
 import java.util.Hashtable;
 import java.util.Locale;
+import java.util.Set;
 
 public class HashMapThingyMAbob implements java.io.Serializable
 {
@@ -10,13 +10,22 @@ public class HashMapThingyMAbob implements java.io.Serializable
    private Node[] table = new Node[size];
    private int count = 0;
 
-   static class Node implements java.io.Serializable
+   public static class Node implements java.io.Serializable
    {
        private String key;
        private Hashtable<String, Integer> freqTable = new Hashtable<String, Integer>();
        private Node next;
 
-
+        public int total_frequncies()
+        {
+            int total = 0;
+            Set<String> keys = freqTable.keySet();
+            for(String key: keys)
+            {
+                total = total + freqTable.get(key);
+            }
+            return total;
+        }
 
        public String getKey() {
            return key;
@@ -92,20 +101,21 @@ public class HashMapThingyMAbob implements java.io.Serializable
     {
         Hashtable<String, Integer> freqTable = new Hashtable<String, Integer>();
 
-        review.replace(".", "");
-        review.replace(",", "");
-        review.replace("\n", "");
         String[] words = review.split("\\W");
         for (String word : words)
         {
-            word = word.toLowerCase();
-            if(freqTable.containsKey(word))
+            if(!word.equals(""))
             {
-                int i = freqTable.get(word) + 1;
-                freqTable.put(word, i);
+                word = word.toLowerCase();
+                if(freqTable.containsKey(word))
+                {
+                    int i = freqTable.get(word) + 1;
+                    freqTable.put(word, i);
+                }
+                else
+                    freqTable.put(word, 1);
             }
-            else
-                freqTable.put(word, 1);
+
 
         }
         return freqTable;

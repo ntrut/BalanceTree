@@ -3,6 +3,7 @@ import com.company.BalanceTree;
 import com.company.HashMapThingyMAbob;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -32,21 +33,44 @@ public class Load
         }
     }
 
+    public String cleanReview(String review, String[] stopwords)
+    {
+        //String[] splitData;
+        for (String stopword : stopwords) {
+            review = review.replaceAll("\\b" + stopword + "\\b", "");
+            review = review.replaceAll("[^\\w\\s']+", "");
+            //splitData = Arrays.stream(review.split("[\\W+]")).filter(x -> !x.isEmpty()).toArray(String[]::new);
+        }
+
+        return review;
+    }
     public void loadEverything() throws IOException {
         String[] names_array = new String[10000];
         int index = 0;
         int check = 0;
         HashMapThingyMAbob test = new HashMapThingyMAbob();
+        String[] stopwords = new String[174];
 
         try{
             File file = new File("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/Businesses_names.txt");
             File file2 = new File("/home/ntrut/IdeaProjects/BalanceTree/src/com/company/reviews.txt");
+            File file3 = new File("/home/ntrut/IdeaProjects/BalanceTree/src/stopwords.txt");
             Scanner read = new Scanner(file);
             Scanner read2 = new Scanner(file2);
+            Scanner read3 = new Scanner(file3);
+
+            /*get my stop words*/
+            int i = 0;
+            while(read3.hasNext())
+            {
+                String stopword = read3.nextLine();
+                stopwords[i] = stopword;
+                i++;
+            }
 
             while(read.hasNextLine() && read2.hasNextLine())
             {
-                Pattern p = Pattern.compile("^[a-zA-Z0-9_ &-'+,.\\\"-/!|@:;]*$");
+                Pattern p = Pattern.compile("^[a-zA-Z0-9_ &-'+,.\"-/!|@:;]*$");
 
                 String line = read.nextLine();
                 String line2 = read2.nextLine();
@@ -55,9 +79,14 @@ public class Load
                 if(b = m.matches())
                 {
                     check++;
+                    /*put the key in array for the tree*/
                     names_array[index] = line;
-                    System.out.println(line + ": REVIEW: " + line2);
                     line2 = line2.toLowerCase();
+                    line2 = cleanReview(line2, stopwords);
+                    //System.out.println(line + ": REVIEW: " + line2);
+
+                    /*hashmap stuff*/
+
                     test.put(line, line2);
 
                 }

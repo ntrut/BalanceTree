@@ -3,38 +3,22 @@ package loader;
 import java.io.*;
 import java.util.Scanner;
 
-import com.company.Calculate;
+import Application.Calculate;
 import com.company.HashMapThingyMAbob;
 import com.company.Node;
+import com.company.readReviewHashMap;
 
 public class Main
 {
     public static void main(String[] args) throws IOException
     {
-        //Load load = new Load();
+        Load load = new Load();
         //readNode();
 
         /*reads from file*/
-        HashMapThingyMAbob map = new HashMapThingyMAbob();
-        try
-        {
-            FileInputStream fis = new FileInputStream("myhashmap.ser");
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            map = (HashMapThingyMAbob) ois.readObject();
-            ois.close();
-            fis.close();
-        }catch(IOException ioe)
-        {
-            ioe.printStackTrace();
-        }catch(ClassNotFoundException c)
-        {
-            System.out.println("Class not found");
-            c.printStackTrace();
-        }
+        readReviewHashMap reviews = new readReviewHashMap();
+        HashMapThingyMAbob map = reviews.readReviewsFromFile();
         map.printAll();
-
-        Calculate cal = new Calculate();
-        System.out.println(cal.documents_with_term("pizza", map));
 
 
     }
