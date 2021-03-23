@@ -12,7 +12,6 @@ public class Similiarities
     {
         readReviewHashMap read = new readReviewHashMap();
         HashMapThingyMAbob map = read.readReviewsFromFile();
-        Calculate cal = new Calculate();
 
         /*get the array of the words in that business names review*/
         Hashtable<String, Integer> input_business = map.get(business);
