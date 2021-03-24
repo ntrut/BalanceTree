@@ -32,10 +32,17 @@ public class Main
         }
 
         clust.assignNonMedoids(test);
+
         for(int i =0; i < clust.getAllClusters().size(); i++)
         {
             clust.getAllClusters().get(i).print();
         }
 
+        System.out.println("******************************************************");
+        clust.Repeat(test);
+        for(int i =0; i < clust.getAllClusters().size(); i++)
+        {
+            clust.getAllClusters().get(i).print();
+        }
     }
 }
