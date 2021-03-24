@@ -3,6 +3,7 @@ import com.company.BalanceTree;
 import com.company.HashMapThingyMAbob;
 
 import java.io.*;
+import java.text.Normalizer;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
@@ -26,7 +27,7 @@ public class Load
             oos.writeObject(test);
             oos.close();
             fos.close();
-            System.out.printf("Serialized HashMap data is saved in hashmap.ser");
+            System.out.println("Serialized HashMap data is saved in hashmap.ser");
         }catch(IOException ioe)
         {
             ioe.printStackTrace();
@@ -35,11 +36,10 @@ public class Load
 
     public String cleanReview(String review, String[] stopwords)
     {
-        //String[] splitData;
+
         for (String stopword : stopwords) {
             review = review.replaceAll("\\b" + stopword + "\\b", "");
             review = review.replaceAll("[^\\w\\s']+", "");
-            //splitData = Arrays.stream(review.split("[\\W+]")).filter(x -> !x.isEmpty()).toArray(String[]::new);
         }
 
         return review;
@@ -74,6 +74,7 @@ public class Load
 
                 String line = read.nextLine();
                 String line2 = read2.nextLine();
+
                 Matcher m = p.matcher(line);
                 boolean b;
                 if(b = m.matches())
@@ -86,9 +87,7 @@ public class Load
                     //System.out.println(line + ": REVIEW: " + line2);
 
                     /*hashmap stuff*/
-
                     test.put(line, line2);
-
                 }
                 index++;
             }
@@ -98,8 +97,6 @@ public class Load
             e.printStackTrace();
         }
 
-
-
         BalanceTree tree = new BalanceTree();
         tree.createTree(names_array[0]);
 
@@ -108,7 +105,6 @@ public class Load
 
             if(names_array[i] != null)
             {
-
                 tree.insert(names_array[i]);
             }
 

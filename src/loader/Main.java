@@ -12,12 +12,12 @@ public class Main
     public static void main(String[] args) throws IOException
     {
         Load load = new Load();
-        //readNode();
+        readNode();
 
         /*reads from file*/
-        readReviewHashMap reviews = new readReviewHashMap();
-        HashMapThingyMAbob map = reviews.readReviewsFromFile();
-        map.printAll();
+        //readReviewHashMap reviews = new readReviewHashMap();
+        //HashMapThingyMAbob map = reviews.readReviewsFromFile();
+        //map.printAll();
 
 
     }

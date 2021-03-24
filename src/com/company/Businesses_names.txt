@@ -55,7 +55,7 @@ Irene's Tap Room
 Hingetown
 BeStitched Needlepoint
 LA Fitness
-Theatre Corona
+Théâtre Corona
 SML Entertainment
 Tzikii Food Truck
 Autohaus Az
@@ -146,7 +146,7 @@ Fleurish Flower Shop
 Manantial De Salud
 Toronto Dermatology Centre
 Chandler Symphony Orchestra
-Heritage Victorien
+Héritage Victorien
 Chick-N-Joy
 Zav Coffee Shop & Gallery
 Blimpie
@@ -154,7 +154,7 @@ Pier 1
 Frederick & Sons
 Wine Rack
 Chef Alyssa's Kitchen
-Jalapeno Inferno
+Jalapeño Inferno
 Fat Moe's Pizza & Wings
 Shear Sensations Hair and Body Care Salon
 Moving Forward
@@ -177,7 +177,7 @@ Spa Lamar
 Lee Cafe
 Fitness Nation
 Nadia's Beauty Salon
-Cinema Guzzo -  Mega-Plex Lacordaire 16
+Cinéma Guzzo -  Mega-Plex Lacordaire 16
 Pioneer Community Park
 Northwest Pool and Spa
 Cruffs Cream Puffs
@@ -213,7 +213,7 @@ Munson Road State Beverage
 Membercuts
 Dutch Bros Coffee
 Phoenix Food Truck Festival
-PlaneteHair
+PlanèteHair
 Bank of America
 Criminal Customz
 Cari Mela
@@ -261,7 +261,7 @@ Uncle Otis Clothing
 Sam's Gyros
 Scottsdale Executive Flight Training
 Specialty Orthotics
-Victoria Park - Club de Sante
+Victoria Park - Club de Santé
 Motherhood Maternity
 Merry Ann's Diner
 Master Shin's World Class Tae Kwon Do
@@ -337,7 +337,7 @@ Harry Marsh Law
 Nergy Solutions
 Elite Floral Events
 Arizona Executive
-B Montreal
+B Montréal
 Dunkin'
 Carolina Dental Arts
 Sam's Ase Auto Tech
@@ -369,7 +369,7 @@ The House Coffee & Sanctuary
 Cake Azure
 Calgary Curling Club
 Habitat For Humanity ReStore - North Randall
-Cafe dei Campi
+Café dei Campi
 Revel Salon
 Mister Chang's Coffee House
 David M Petti, DMD- Smiles Forever Family Dentistry
@@ -424,7 +424,7 @@ Flancer's
 Bloom
 Million Dollar Nail Spa
 Acn Inc.
-Sushi Depanneur
+Sushi Dépanneur
 Rexall Pharma Plus
 A & L Desert Landscapes
 Day and Day Soup
@@ -475,7 +475,7 @@ Pure Spa & Nails
 Skippa
 A Good Read
 Famous Yeti's Pizza
-Bleu Beaute Bar
+Bleu Beauté Bar
 Motel 6
 Spanish Oaks Apts by ConAm Management
 Hertz Rent A Car
@@ -760,7 +760,7 @@ The Lit Grille
 Church's Chicken
 Fantasy Nails
 Starbucks
-Reseau de Transport Metropolitain - RTM
+Réseau de Transport Métropolitain - RTM
 Mucho Burrito
 Chez Ma Tante
 Chicken Monster
@@ -852,7 +852,7 @@ Centerville Mills Association
 Bradford Clinic
 Epicure Cafe & Grill
 Unlock Salon
-La Garde Partagee
+La Garde Partagée
 Weston Hair Spot
 Tim Hortons
 The Valley Bar and Grill
@@ -894,7 +894,7 @@ Marvellous Edibles
 Dwelle Realty Company
 A World of Tile
 Mito
-Marche Hawaï
+Marché Hawaï
 Fitness Together
 Handy Howie's Handyman Services
 Natalie's Nail Salon
@@ -913,7 +913,7 @@ Sunset Water Store
 Love You Back Boutique
 Coach
 Rabot W. Pat, DMD
-Marche Noor
+Marché Noor
 Davidson Day School
 Baby Point Lounge
 Aerus
@@ -933,7 +933,7 @@ Jewelry City
 Heartlake Used Auto Parts
 McClure Collision Center
 Canyon Midwifery
-Cafe Zupas
+Café Zupas
 Family Christian
 Real Canadian Superstore
 Atlas Cinemas Eastgate 10
@@ -1019,7 +1019,7 @@ Camarra's Pizzeria & Restaurant
 Mattress Firm - Raintree with Clearance
 Insomnia Munchies
 Walmart Pharmacy
-Marche Station 54
+Marché Station 54
 Cocoa Locale
 Murphy's Bridle Path
 FlashTel Wireless
@@ -1029,7 +1029,7 @@ Yogurtology
 Lingerie Superstore
 Ilios Noche
 Wrights at The Arizona Biltmore
-Tutti Frutti Dejeuners
+Tutti Frutti Déjeuners
 Super Nails & Spa
 Lloydie's
 Bay Cat Hospital
@@ -1088,11 +1088,11 @@ La Maison Grecque
 Dr Ahmed Akl, MD
 Centre Mecanix
 Schmitz Door Service
-DeCourses Cafe
+DeCourses Café
 Subway Restaurants
 Four Turnberry Place
 Marmite Su'l Feu
-The Food And Art Cafe
+The Food And Art Café
 The Patio At Las Sendas Golf Club
 United Blood Services
 Wild Burger
@@ -1140,7 +1140,7 @@ Yankee Candle Company
 Avis Car
 Las Vegas Pest Control
 Between Friends Nails
-Cafe Conmigo
+Café Conmigo
 Rôtisserie St-Hubert
 Vignoble Vents d'Ange
 Haveli Restaurant
@@ -1435,7 +1435,7 @@ Bestech Electronic Services
 Magic Touch Mechanical
 Spay Neuter Clinic: Mesa
 CrossFit Veni Vidi Vici East
-Dessert Lady Cafe
+Dessert Lady Café
 Lydiah's Coffee House
 Oaka Sushi House
 Godis Wheel Alignment
@@ -1625,7 +1625,7 @@ Lakewood Music Academy
 Southern Nevada Regional Housing Authority
 East Valley Sew n' Vac
 Days Inn Tempe ASU
-Ma Douce Moitie
+Ma Douce Moitié
 Sushi Ave
 Newman & Marleys
 Silver City Restaurant
@@ -2133,9 +2133,9 @@ Bayrischer Hof New German Restaurant
 Challenge
 Hudson News
 Young St Karaoke
-Nambe At Scottsdale Quarter
+Nambé At Scottsdale Quarter
 Foxy Nails
-Le Salon de The Gryphon d'Or
+Le Salon de Thé Gryphon d'Or
 Planet Hollywood Towers
 Rania's Kabob Grill
 Ultimate Wash of Solon
@@ -2248,7 +2248,7 @@ SuperFarm SuperTruck
 Modern Tortilla Food Truck and Catering
 The Light Bulb Store
 Bagel Nash
-Cafe 1880
+Café 1880
 Elevation Medical Weight Loss
 The Home Goods Store
 Restaurant Chez Dan
@@ -2336,7 +2336,7 @@ Desert Ridge Music Academy
 Popeyes Louisiana Kitchen
 Marti's Lounge
 Water Well
-Cafe Bricco
+Café Bricco
 Lyle's Jewelry & Coin
 Cibo Wine Bar
 Stop and Shop
@@ -2412,7 +2412,7 @@ Rancho Manana Golf Club
 Tower Creamery
 Michael C Daily Design Consultants
 Winners Circle Training Center
-Copper Whisk Cafe
+Copper Whisk Café
 Mon K Patisserie
 Popcorn Heaven
 MC3 Salon & Wellness Center
@@ -2530,7 +2530,7 @@ Terry-Alix Hair Salon
 Cupcrazed Cakery
 Photography & Videography by Shy McGrath
 Asian Noodle
-Cafe Pamenar
+Café Pamenar
 Rino D's Pizza & Wings
 Lakewood Optical
 3 Trade Food & Wine
@@ -2778,7 +2778,7 @@ OfficeMax
 Taco Shack
 Burger Shawarma
 Hair Classic
-Cafe Bonita
+Café Bonita
 The Trane Studio
 Gabroy Law Offices
 Dough New York Style Bakery
@@ -2917,7 +2917,7 @@ Subway
 Girls On the Run
 QuikTrip
 Capital Acupuncture and Therapeutic Massage
-Mechant Bœuf Bar & Brasserie
+Méchant Bœuf Bar & Brasserie
 Firehouse Grilling
 Three Sheets Craft Beer Bar
 Little Snips
@@ -2994,7 +2994,7 @@ PZA
 McDonald's
 Walt's BBQ
 Last Place On Earth
-Cafe Martin
+Café Martin
 RBC Royal Bank
 La Poblanita
 Cleveland Metroparks
@@ -3083,7 +3083,7 @@ Charlotte Haunts Ghost Tours
 Fun Kutz Kids Hair Salon
 Seed Shack
 Express Smog and Motorworks
-Odyssee
+Odyssée
 Save On Services
 Novant Health Steele Creek Family Practice
 DHL Express Canada
@@ -3092,7 +3092,7 @@ Smoke's Weinerie
 Pizza Pizza
 Southland Vision Care
 Guess
-Le Passe Compose
+Le Passé Composé
 Nadège Patisserie
 Oak Creek
 Aerial Eye
@@ -3316,7 +3316,7 @@ Port City Club
 DAVIDsTEA
 Target
 Cox Las Vegas
-L'Academie XP
+L'Académie XP
 The Butler Did It! CLT
 Root Candles At West Liberty
 Mister Transmission
@@ -3500,7 +3500,7 @@ Signature Vacation Rentals
 Style Furniture
 Pizza Hut
 Vegas Concierge Doctor
-Maison du Developpement Durable
+Maison du Développement Durable
 Teaspressa
 Michael Drain Attorney At Law
 Romero's Mexican Food
@@ -3524,7 +3524,7 @@ TC Vintage Addiction
 Starbucks
 Complete Laser
 Express Screen Printing
-Mecanique Gilberto Inc
+Mécanique Gilberto Inc
 The Duty Free Store
 Tshirt Hell
 Star of India
@@ -3730,7 +3730,7 @@ Dyno Plumbing
 Finish-Rite Drywall
 Permenter Chiropractic
 Scofield Realty
-Cafe Cherrier
+Café Cherrier
 Tinder Box Internationale
 Hallmark Creations
 2M Pizza
@@ -3754,7 +3754,7 @@ Motel 6
 306 Lounge
 Caldense & Bakery
 Appliance Warehouse
-Sweet Poke
+Sweet Poké
 Luna Yoga
 Cafe de Japon
 Shawna Eischens, NMD
@@ -3762,7 +3762,7 @@ Parr Cabinet Design Center
 Town Dental Group
 The Blind Man
 American Eagle Outfitters
-Posare Salon
+Posaré Salon
 Divine Events
 Solution Build Group
 Northwest Limousine
@@ -3900,7 +3900,7 @@ Old Chicago
 Gentle Dental Greenfield
 Hays Roofing
 Integrity Contents Services
-Cafe Sable
+Café Sable
 Smile Source on Chagrin
 Eton House Tavern
 The Shop Automotive & Performance
@@ -4666,7 +4666,7 @@ Nikki Dolce
 Taglio Di Roma Bar À Pizza
 DuraFast Label Company
 Matt Rose
-Le Richmond - Marche Italien
+Le Richmond - Marché Italien
 Weekday Preschool at First United Methodist Church
 Maharani Indian Cuisine
 Sumit's Yoga
@@ -4697,7 +4697,7 @@ On Point Hair & Nail Salon
 Christ the King Church
 Mayorga Coffee
 Climatech Heating & Cooling
-Mickey's Cafe
+Mickey's Café
 New Gallery of Modern Art
 Scottsdale Lock & Key
 Little Khao
@@ -4784,7 +4784,7 @@ Chroma Salon & Boutique
 BFLY
 Thrill Bikes
 Radica's Hot & Spicy
-Cafe l'etincelle
+Café l'Étincelle
 Richmond Hill Centre Terminal
 Shans Barber Shop
 See's Candies
@@ -4885,7 +4885,7 @@ Star Beauty Plus
 B & T Food Centre
 Economic Equipment Locator
 Deneke Hair Salon
-Chez Gatse Restaurant Tibetain
+Chez Gatsé Restaurant Tibetain
 Oakes Appliance & Refrigeration Service
 Julie Goodell, DO FACOOG
 Huntersville Ford - Service
@@ -4925,7 +4925,7 @@ Tru by Hilton Las Vegas Airport
 Starbucks
 AZ MAX Surgeons
 Bethany Animal Hospital
-Pokewave
+Pokéwave
 Good Egg Dining
 Nevada Divorce & Document Services
 Mint Carpet Cleaning
@@ -5427,7 +5427,7 @@ Pandy's Garden Center
 Aussie Pet Mobile of Charlotte
 Southland Lanes
 Quality Collision
-Brioche Doree
+Brioche Dorée
 Mr. Falafel
 Melissa's Pet Sitting
 True North Barber Shop
@@ -5799,7 +5799,7 @@ Paws Pet Services
 Hudson's Bay
 Society of St Vincent De Paul
 New Life Roofing
-Aprile Bambina
+Aprilé Bambina
 Pot World
 Wheel the Bar & Lounge
 Farmers Insurance - Jason Grifo
@@ -5885,7 +5885,7 @@ Mia Salon Studios
 China Wok
 China Kitchen
 Williams Stained Glass Studio
-Le Dejeuner Cosmopolitain
+Le Déjeuner Cosmopolitain
 Parkway Auto Care
 El Compa Tires
 Zaytoon Kabob Bistro
@@ -5952,11 +5952,11 @@ Zimbrick Volkswagen
 Patricia's Cake Creations
 AcePool
 Amazon fulfillment center
-Cafe Bernate
+Café Bernate
 The Fireplace and Patioplace
 MacLeod Plaza Laundromat
 Jerry Rhyne's Collision Repair
-Brasseurs de Montreal
+Brasseurs de Montréal
 Yen Nails
 Visions Eyecare Centre
 Michael Kluthe Salon
@@ -6196,7 +6196,7 @@ Summerhill Apartment Homes
 Express Pass Air
 The Hive
 Great Steak Potato
-Marche Bacchus
+Marché Bacchus
 Asian Legend
 Vercini
 Signature Gallery
@@ -6266,7 +6266,7 @@ Hangover Bail
 Harmony Bar & Grill
 Artessa
 Max & Erma's Restaurants
-Kayla Eckart 
+Kayla Eckart
 Casa Grande Restaurant
 VA Thunderbird Clinic
 Starbucks
@@ -6451,7 +6451,7 @@ City Fresh
 Colonial Vietnamese Cuisine
 Izakaya Iwashi
 The Gallery
-Centre Universitaire de Sante McGill - Site Glen
+Centre Universitaire de Santé McGill - Site Glen
 Croque's Famous Sandwiches
 Accountingprose
 Pizza Patron
@@ -6720,7 +6720,7 @@ CPR Cell Phone Repair Phoenix Central
 GreenMaid
 Defending the Caveman
 Vegas Vacuum & Sewing
-Melisse
+Mélisse
 Thomas A Kruzel, ND
 Club 42 Permanent Cosmetics
 Col Mustard's Bar & Grill
@@ -6777,7 +6777,7 @@ Park Tower Apartments
 Chartiers Animal Hospital
 Casa de Plata
 Omni Wellness Center
-Labothery
+Labothéry
 RedNile Hookah Lounge
 Horsin Around
 Pet Valu
@@ -6864,7 +6864,7 @@ Scout & Cash Caffe
 Little Dumpling
 Soccer Post Arrowhead
 Saeed's Bar & Grill
-Marche Laurier
+Marché Laurier
 Kookminhakgyo
 The Suntan Boutique
 Montana's
@@ -6885,7 +6885,7 @@ LensCrafters
 American Furniture Galleries
 Circle K
 Tiki Ice
-Detour Bistro
+Détour Bistro
 The Bear and Firkin Pub
 D's Six Pax & Dogz
 Challenger School - Silverado
@@ -6973,7 +6973,7 @@ Lost And Found
 Galaxy Lending Group LLC
 Chopsticks n Grill
 Joy's Cafe
-Les Heritiers
+Les Héritiers
 Tropicana Palms
 John's Family Restaurant
 Earl Bales Park
@@ -7004,7 +7004,7 @@ Mesa Community College
 Umi Sushi
 Ross Outdoors
 Alliance Urgent Care
-Bloom Cafe
+Bloom Café
 Monarch Window Cleaning
 Eldorado Cleaners
 BounceU Matthews
@@ -7019,7 +7019,7 @@ Lowes Foods
 Valvoline Instant Oil Change
 Wok Vegas Asian BBQ
 My Mind's Eye
-Universite Concordia - Loyola Campus
+Université Concordia - Loyola Campus
 Sansimian
 Hydro Werx pool service
 Red Rock Eyecare
@@ -7260,7 +7260,7 @@ Balloons On Bloor
 Schezuan Express
 Bay Coins & Stamps
 discount computers
-Cafe Zupas
+Café Zupas
 Running Room Canada
 Family Law Guys
 SEPHORA
@@ -7280,7 +7280,7 @@ IT'SUGAR
 FedEx Office Print & Ship Center
 Element 41
 Monkey Bar Gym
-Artisano Bakery Cafe
+Artisano Bakery Café
 Le Cosmodôme
 Kat Hale Hair
 Qui H Thai, MD
@@ -7574,7 +7574,7 @@ Luke House
 Great Clips
 Firestone Complete Auto Care
 Enterprise Rent-A-Car
-La-Z-Boy Home Furnishings and Decor
+La-Z-Boy Home Furnishings and Décor
 Mojito Cigar Lounge
 Family First Medical
 Boteco
@@ -7587,7 +7587,7 @@ Greyhound Bus Lines
 Aaron Machine Shop
 Vegas Pro Air Conditioning & Heating
 Watchtyme
-Amelie's French Bakery & Cafe
+Amélie's French Bakery & Café
 Churned Ice Cream Shop
 Toronto Image Works
 H&R Block
@@ -8014,7 +8014,7 @@ Wells Chiropractic
 Just One More Tavern
 Sprouts Farmers Market
 Frame Gallery
-FreshFin Poke
+FreshFin Poké
 Totem Appliance Service
 Silverton Blingo Bingo
 PlayN Wisconsin
@@ -8137,7 +8137,7 @@ National Event Staffing
 HolisticFit
 A Twisted Tulip
 CarMax
-Cafe Le Spot
+Café Le Spot
 Cocina de Doña Julia
 T & A Nail Spa
 Stewardship
@@ -8357,7 +8357,7 @@ Chicago Pizza
 Terrace Gardens Restaurant
 Nortown Foods
 Sawaddee Thai Restaurant
-The Cafe at Heard Museum North Scottsdale
+The Café at Heard Museum North Scottsdale
 China Dragon
 Choice Auto Repair
 Gps and Track
@@ -8430,7 +8430,7 @@ The Leatherman
 Merkato Ethiopian Cafe
 White Vacuum
 The Buckle
-Marche Epicure
+Marché Epicure
 New King Wah Chinese Buffet
 Willowick Laser Wash
 Beat The Heat Pool Service
@@ -8463,7 +8463,7 @@ GoodLife Fitness
 Nieve Malandra
 Dirty South
 Scottsdale Spice
-Cafe 45
+Café 45
 Macy's
 Superior Tire & Auto
 The Arizona Fishing Guides
@@ -8471,7 +8471,7 @@ Chapman Collision Scottsdale
 QuikTrip
 Desert Grove Family Medical
 Concession Subaru - John Scotti
-Cafe Spill the Beans
+Café Spill the Beans
 Little Caesars Pizza
 One Red Door Photography
 Slots A Fun
@@ -8506,7 +8506,7 @@ Parma Laser Wash
 Atlas Specialty Supermarket & Persian Cuisine
 Anatolia Turkish Food
 Par plumbing
-Posare Salon - Henderson
+Posaré Salon - Henderson
 Shawnessy Library
 Payless ShoeSource
 Uptown Jungle Fun Park
@@ -8598,9 +8598,9 @@ Bud's Tree Care
 Istanbul Grille
 Saints & Sinners Hair Design
 Woodie's Auto Service
-Rachelle-Bery epiceries Sante
+Rachelle-Béry Épiceries Santé
 GapKids
-Les Cafe equitasse
+Les Café Équitasse
 Raw Fitness Henderson - St. Rose Parkway
 Starbucks
 CoCo's Gelato
@@ -8716,14 +8716,14 @@ Foreclosed Upon Pets
 Medi-Weightloss
 Galaxie Diner
 Touch Salon and Spa
-Nos Thes
+Nos Thés
 El Ranchero Of Traditional Mexican Food
 Franciscus Roofing
 Tutoring Club
 Signarama Phoenix North
 Büro 53
 Fernanda's BBQ Chichen
-Cafe Veritas
+Café Veritas
 Homes By Claudia Marion
 Cloud 9 Window Washing
 BevMo
@@ -8839,7 +8839,7 @@ K & R Painting and Drywall
 Best Estie Day Spa
 Spaghetti Shop
 Kristopher's Place
-Tassot Creole
+Tassot Créole
 Panera Bread
 US Post Office
 Apartments Now
@@ -8916,7 +8916,7 @@ Comfort Hotel Downtown
 New Mexican Grill
 Evviva Breakfast & Lunch - Vaughan Mills
 TD Canada Trust
-Cafe de la Troisième
+Café de la Troisième
 Lena's Flowers & Gifts
 Cell2Fix
 XS Cargo
@@ -9079,7 +9079,7 @@ Marianna's Alterations
 Steel City Mower & Plow
 Liquor Depot At Hunterhorn
 Assurance Exteriors & Interiors
-Cafe Fiesta
+Café Fiesta
 Shell
 Wraps On The Go
 Table 51
@@ -9106,7 +9106,7 @@ Juice Bar at LVAC
 Canyon Creek Chophouse
 Swiss Chalet Rotisserie & Grill
 Excalibur Of Avondale Collision LLC
-Musee du Montreal Juif
+Musée du Montréal Juif
 Three Cent Copy Centre
 Hair & Nails Zone
 Ace Thrift Supply
@@ -9253,7 +9253,7 @@ Booklovers
 Animal Defense League of Arizona
 Arizona Bounce Around
 LaVida Massage - Ballantyne
-Cafe Lola
+Café Lola
 AdultMart
 Firewater
 Hertz Rental Car
@@ -9278,7 +9278,7 @@ Sleep Country
 All County Pet Crematory
 Glen Meadows Auto Service
 Parlour Salon
-Boulangerie Seraphin
+Boulangerie Séraphin
 The Merchant of Tennis
 Neshoff's Carpet and Upholstry Cleaning
 Fort McDowell Adventures
@@ -9401,7 +9401,7 @@ Armstrong McCall
 La Tortilla Feliz
 Charlotte Re-Cyclery
 Max Moving Corporation
-Cafe Bar St-Laurent Frappe
+Café Bar St-Laurent Frappé
 Dagger Performance Diesel
 Cleveland Clinic - Beachwood
 Wayne’s Bagels
@@ -9721,7 +9721,7 @@ At Your Service Catering
 Arizona Pita
 Halbleib's Auto Body
 Midwestern University Dental Institute
-Drake's Corner Cafe + Bistro
+Drake's Corner Café + Bistro
 A To Z Salon & Spa
 Amelia C & Co
 Home2 Suites by Hilton Pittsburgh / McCandless, PA
@@ -9936,7 +9936,7 @@ Asian Star Buffet
 Harris Teeter
 Twin Lanes Bowling Alley
 Salon Cercone
-Valmont Montreal
+Valmont Montréal
 Eggsquis
 Brand Steakhouse
 Genie Car Wash
@@ -9994,7 +9994,7 @@ Scott Leone, DO, BS
 Papa John's
 Raja Foods
 Aretis Alteration
-Cafe SAT
+Café SAT
 Melissa Eckstrom - State Farm Insurance Agent
 Mirage Grill & Lounge
 Living Yoga Center
