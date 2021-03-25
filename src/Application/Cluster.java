@@ -8,6 +8,16 @@ public class Cluster
     private ArrayList<Double> nonmedoids = new ArrayList<Double>();
     private double total_sum_distance;
 
+    public Cluster(double medoid) {
+        this.medoid = medoid;
+    }
+
+    public Cluster(Cluster cluster)
+    {
+        this.medoid = cluster.getMedoid();
+        this.nonmedoids = cluster.getNonmedoids();
+        this.total_sum_distance = cluster.getTotal_sum_distance();
+    }
     public double getMedoid() {
         return medoid;
     }
@@ -50,10 +60,11 @@ public class Cluster
     public void print()
     {
         System.out.print("[Medoid: " + medoid + "] ");
+        System.out.print("Total sum: " + total_sum_distance + ": ");
         for(int i = 0; i < nonmedoids.size(); i++)
         {
             System.out.print(nonmedoids.get(i) + ", ");
         }
-        System.out.println("Total sum: " + total_sum_distance);
+        System.out.println();
     }
 }

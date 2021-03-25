@@ -10,20 +10,16 @@ public class Main
     {
         //Similiarities test = new Similiarities();
         //test.getSimiliartiy("Visionworks");
-        int num = 5;
+        int num = 10;
         ArrayList<Double> test = new ArrayList<Double>();
         KMedoidClustering clust = new KMedoidClustering(num);
-        test.add(0.2);
-        test.add(0.4);
-        test.add(0.6);
-        test.add(0.8);
-        test.add(1.0);
-        test.add(0.42);
-        test.add(0.3434);
-        test.add(0.932432);
-        test.add(0.3232546);
-        test.add(0.0);
-        test.add(0.1);
+
+        for(int k =0; k < 5000; k++)
+        {
+            Random rand = new Random();
+            test.add((Math.random() * 1));
+        }
+
         for(int i = 0; i < num; i++)
         {
             Random rand = new Random();
@@ -42,7 +38,9 @@ public class Main
         clust.Repeat(test);
         for(int i =0; i < clust.getAllClusters().size(); i++)
         {
+            System.out.print("[Cluster " + i + "] " + " ");
             clust.getAllClusters().get(i).print();
         }
+
     }
 }

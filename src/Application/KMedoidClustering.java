@@ -1,5 +1,7 @@
 package Application;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -22,8 +24,8 @@ public class KMedoidClustering
 
     public void assignMedoid(double cosine)
     {
-        Cluster cluster = new Cluster();
-        cluster.setMedoid(cosine);
+        Cluster cluster = new Cluster(cosine);
+        //cluster.setMedoid(cosine);
         if(allClusters.size() < MAX_CLUSTER)
         {
             allClusters.add(cluster);
@@ -60,8 +62,9 @@ public class KMedoidClustering
     {
         Random rand = new Random();
         Random rand2 = new Random();
+        Swapping swap = new Swapping();
 
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 10000; i++)
         {
             int selectClust = rand.nextInt(allClusters.size());
             if(allClusters.get(selectClust).getNonmedoids().size() != 0)
@@ -77,73 +80,25 @@ public class KMedoidClustering
                 cluster.setMedoid(nonmedoid);
                 cluster.addNonMedoid(tempMedoid);
 
-                ArrayList<Cluster> temp = allClusters;
+                ArrayList<Cluster> temp = new ArrayList<>(allClusters);
                 temp.set(selectClust, cluster);
 
+
                 /*check if that cluster has a smaller total sum of distance*/
-
-                swapCheck(selectClust, temp);
-            }
-
-        }
-    }
-
-    public ArrayList<Cluster> calculateAllSums(ArrayList<Cluster> clusters)
-    {
-        for(int i =0; i < clusters.size(); i++)
-        {
-            clusters.get(i).calculateTotalDistance();
-        }
-        return clusters;
-    }
-
-    public void swapCheck(int index, ArrayList<Cluster> clusters)
-    {
-        /*reassign all of the nonmedoids*/
-        clusters = calculateAllSums(clusters);
-        clusters = reAssignNonMedoids(clusters);
-        clusters = calculateAllSums(clusters);
-        if(clusters.get(index).getMedoid() < allClusters.get(index).getMedoid())
-        {
-           allClusters = clusters;
-        }
-
-
-    }
-
-    public ArrayList<Cluster> reAssignNonMedoids(ArrayList<Cluster> clusters)
-    {
-        ArrayList<Double> newArray = new ArrayList<Double>();
-        ArrayList<Double> empty = new ArrayList<Double>();
-        for(int i = 0; i < clusters.size(); i++)
-        {
-            System.out.println(clusters.get(i).getNonmedoids());
-            newArray.addAll(clusters.get(i).getNonmedoids());
-            clusters.get(i).setNonmedoids(empty);
-            clusters.get(i).calculateTotalDistance();
-        }
-        System.out.println("here");
-        System.out.println(newArray);
-        int index = 0;
-        for(int i = 0; i < newArray.size(); i++)
-        {
-            double min = calculateDistance(newArray.get(i), clusters.get(0).getMedoid());
-            for(int j = 1; j < clusters.size(); j++)
-            {
-                double compare = calculateDistance(newArray.get(i), clusters.get(j).getMedoid());
-                if(compare < min)
+                ArrayList<Cluster> hello = new ArrayList<>();
+                for(int j =0; j < MAX_CLUSTER; j++)
                 {
-                    min = compare;
-                    index = j;
+                    hello.add(new Cluster(allClusters.get(j)));
                 }
 
+                allClusters = swap.swapCheck(selectClust, temp, hello);
             }
-            clusters.get(index).addNonMedoid(min);
+
         }
-
-
-
-        return clusters;
     }
+
+
+
+
 
 }
