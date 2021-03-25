@@ -11,7 +11,7 @@ public class Main
 {
     public static void main(String[] args) throws IOException
     {
-        Load load = new Load();
+        //Load load = new Load();
         readNode();
 
         /*reads from file*/

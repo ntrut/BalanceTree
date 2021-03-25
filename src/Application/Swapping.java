@@ -21,11 +21,15 @@ public class Swapping
     public ArrayList<Cluster> swapCheck(int index, ArrayList<Cluster> clusters, ArrayList<Cluster> orginial)
     {
         /*reassign all of the nonmedoids*/
-        clusters = reAssignNonMedoids(clusters);
+        clusters = reAssignNonMedoids(clusters, index);
         clusters = calculateAllSums(clusters);
 
-        if(clusters.get(index).getTotal_sum_distance() < orginial.get(index).getTotal_sum_distance())
+        if(clusters.get(index).getTotal_sum_distance() < orginial.get(index).getTotal_sum_distance() && !(clusters.get(index).getTotal_sum_distance() == 0.0))
         {
+            if(clusters.get(index).getTotal_sum_distance() == 0.0)
+            {
+                System.out.println("ITS ZEROOOO");
+            }
             //System.out.println("Swapped! new cluster " + clusters.get(index).getTotal_sum_distance() + " orginial cluster sum " + orginial.get(index).getTotal_sum_distance());
             return clusters;
         }
@@ -34,16 +38,15 @@ public class Swapping
         return orginial;
     }
 
-    public ArrayList<Cluster> reAssignNonMedoids(ArrayList<Cluster> clusters)
+    public ArrayList<Cluster> reAssignNonMedoids(ArrayList<Cluster> clusters, int num)
     {
 
         ArrayList<Double> newArray = new ArrayList<Double>();
-        for(int i = 0; i < clusters.size(); i++)
-        {
-            newArray.addAll(clusters.get(i).getNonmedoids());
-            clusters.get(i).getNonmedoids().clear();
-            clusters.get(i).calculateTotalDistance();
-        }
+
+        newArray.addAll(clusters.get(num).getNonmedoids());
+        clusters.get(num).getNonmedoids().clear();
+        clusters.get(num).calculateTotalDistance();
+
 
         int index = 0;
 

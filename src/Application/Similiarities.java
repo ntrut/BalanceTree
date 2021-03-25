@@ -8,15 +8,16 @@ import java.util.*;
 public class Similiarities
 {
 
-    public void getSimiliartiy(String business)
+    public FinalAwnser getSimiliartiy(String business, int k, int indexOfCluster)
     {
         readReviewHashMap read = new readReviewHashMap();
         HashMapThingyMAbob map = read.readReviewsFromFile();
+        ArrayList<Double> allCosine = new ArrayList<Double>();
 
         /*get the array of the words in that business names review*/
         Hashtable<String, Integer> input_business = map.get(business);
         ArrayList<String> input_array = getArrayofFrequencies(input_business);
-        System.out.println(input_array);
+        //System.out.println(input_array);
         double max = 0;
         String compared = "";
         Hashtable<String, Integer> temp = new Hashtable<String, Integer>();
@@ -55,18 +56,26 @@ public class Similiarities
                         temp = e.getFreqTable();
 
                     }
-                    System.out.println(e.getKey() + " SIMILIARTY FINANLLLYYY: " + v);
+                    if(!Double.isNaN(v))
+                        allCosine.add(v);
+
+                    //System.out.println(e.getKey() + " SIMILIARTY FINANLLLYYY: " + v);
                 }
-
-
             }
-
         }
 
         System.out.println(business + " comapred with " + compared + " with score of " + max);
         System.out.println(business + ": " + input_business);
         System.out.println(compared + ": " + temp);
+        //System.out.println(allCosine);
 
+        FinalAwnser store = new FinalAwnser();
+        createClusters create = new createClusters();
+        store = create.create(store, k, indexOfCluster, allCosine);
+        store.setBusiness(business);
+        store.setSimiliarBusiness(compared);
+
+        return store;
 
     }
 

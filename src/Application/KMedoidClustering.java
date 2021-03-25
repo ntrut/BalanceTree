@@ -43,7 +43,7 @@ public class KMedoidClustering
             {
                 /*find the closest medoid*/
                 double compare = calculateDistance(nonmedoids.get(i), allClusters.get(j).getMedoid());
-                if(compare < closestDistance)
+                if(compare < closestDistance )
                 {
                     closestDistance = compare;
                     closest = allClusters.get(j);
@@ -51,6 +51,18 @@ public class KMedoidClustering
             }
             closest.addNonMedoid(nonmedoids.get(i));
         }
+
+        /*calculate total sum of all clsuters*/
+        calculateAllSums(allClusters);
+    }
+
+    public ArrayList<Cluster> calculateAllSums(ArrayList<Cluster> clusters)
+    {
+        for(int i =0; i < clusters.size(); i++)
+        {
+            clusters.get(i).calculateTotalDistance();
+        }
+        return clusters;
     }
 
     public double calculateDistance(double input, double mediod)
@@ -64,7 +76,7 @@ public class KMedoidClustering
         Random rand2 = new Random();
         Swapping swap = new Swapping();
 
-        for(int i = 0; i < 10000; i++)
+        for(int i = 0; i < 50000; i++)
         {
             int selectClust = rand.nextInt(allClusters.size());
             if(allClusters.get(selectClust).getNonmedoids().size() != 0)

@@ -54,13 +54,12 @@ public class Cluster
     public void addNonMedoid(double t)
     {
         nonmedoids.add(t);
-        total_sum_distance = total_sum_distance + Math.abs(medoid - t);
     }
 
     public void print()
     {
         System.out.print("[Medoid: " + medoid + "] ");
-        System.out.print("Total sum: " + total_sum_distance + ": ");
+        System.out.print("[Total sum: " + total_sum_distance + "]: ");
         for(int i = 0; i < nonmedoids.size(); i++)
         {
             System.out.print(nonmedoids.get(i) + ", ");
