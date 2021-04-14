@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class createClusters
 {
-    public FinalAwnser create(FinalAwnser store, int k, int indexOfCluster, ArrayList<Double> nonmedoids)
+    public ArrayList<Cluster> create(int k, ArrayList<Double> nonmedoids)
     {
         KMedoidClustering clust = new KMedoidClustering(k);
 
@@ -34,11 +34,9 @@ public class createClusters
             clust.getAllClusters().get(i).print();
         }
 
+        return clust.getAllClusters();
         //System.out.println("Medoid " + clust.getAllClusters().get(indexOfCluster-1).getMedoid() + " Closests: " + get5(clust.getAllClusters().get(indexOfCluster - 1)));
 
-        store.setArray(get5(clust.getAllClusters().get(indexOfCluster - 1)));
-        store.setMedoid(clust.getAllClusters().get(indexOfCluster-1).getMedoid());
-        return store;
     }
 
     /*gets the 5 closest nonmedoids to the medoid*/

@@ -60,6 +60,11 @@ public class KMedoidClustering
     {
         for(int i =0; i < clusters.size(); i++)
         {
+            clusters.get(i).setTotal_sum_distance(0);
+        }
+
+        for(int i =0; i < clusters.size(); i++)
+        {
             clusters.get(i).calculateTotalDistance();
         }
         return clusters;
@@ -104,13 +109,10 @@ public class KMedoidClustering
                 }
 
                 allClusters = swap.swapCheck(selectClust, temp, hello);
+                calculateAllSums(allClusters);
             }
 
         }
     }
-
-
-
-
 
 }

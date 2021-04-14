@@ -137,15 +137,7 @@ public class Frame2 extends JFrame implements ActionListener
             int clusterIndex = Integer.parseInt(textFieldClusterIndex.getText());
             int valueK = Integer.parseInt(forK.getText());
             Similiarities test = new Similiarities();
-            FinalAwnser store = new FinalAwnser();
-            store = test.getSimiliartiy(inputText, valueK, clusterIndex);
-            String newString = store.getSimiliarBusiness() + " \nMedoid: " + store.getMedoid() + "\nFirst 5 unique keys of Cluster: \n";
-            for(int i =0; i < store.getArray().size(); i++)
-            {
-                newString = newString + store.getArray().get(i) + "\n";
-            }
 
-            output.setText(newString);
             System.gc();
 
         }
