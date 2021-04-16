@@ -1,8 +1,13 @@
 package Project3;
 
+import Application.Similiarities;
+import com.company.HashMapThingyMAbob;
+import com.company.readReviewHashMap;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Scanner;
 
@@ -14,7 +19,7 @@ public class Graph
     Double[] longitudes_array = new Double[10000];
 
     /*This adds the nodes to the graph*/
-    public void initalizeNodes(String business, Hashtable<String, Double> test)
+    public void initalizeNodes()
     {
         Haversine havesine = new Haversine();
         int skip = 0;
@@ -22,36 +27,102 @@ public class Graph
         double longitude1 = 0;
         for(int i = 0; i < business_names.length; i++)
         {
-            if(business.equals(business_names[i]))
-            {
-                skip = i;
                 latitude1 = latitudes_array[i];
                 longitude1 = longitudes_array[i];
-                break;
-            }
+
         }
 
         /*create a temp so i can loop thru all of the keys and if we have the business name, we create a graph node
         * the reason i do this is because we dont have any duplicate businesses*/
         Hashtable<String, Double> temp;
-        temp = test;
         for(int i = 0; i < 10000; i++)
         {
-            if(i != skip)
-            {
-                /*we skip the business that the user inputs
-                * we create a new node with the havesine and initalize the node with business and distance*/
-                if(temp.containsKey(business_names[i]))
-                {
-                    double newDistance = havesine.getHaversine(latitude1, longitude1, latitudes_array[i], longitudes_array[i]);
-                    PathNode newNode = new PathNode(business_names[i], newDistance, temp.get(business_names[i]));
-                    graph.add(newNode);
-                    temp.remove(business_names[i]);
-                }
-
-
-            }
+            PathNode newNode = new PathNode(business_names[i], latitudes_array[i], longitudes_array[i]);
+            graph.add(newNode);
         }
+    }
+
+    public ArrayList<PathNode> copy(ArrayList<PathNode> e)
+    {
+        return e = new ArrayList<PathNode>(this.graph);
+    }
+
+    /*Find the nodes closest neighbors and create edges
+    * then once we find their edges, calculate the cosine(weight)*/
+    public void initializeEdges()
+    {
+        readReviewHashMap read = new readReviewHashMap();
+        HashMapThingyMAbob map = read.readReviewsFromFile();
+
+        ArrayList<PathNode> clone = new ArrayList<PathNode>();
+        /*create cloned array*/
+        clone.addAll(graph);
+
+        for(int i = 0; i < clone.size(); i++)
+        {
+            findClosest4neighbors(clone.get(i), map);
+            System.out.println(i);
+        }
+    }
+
+    public void findClosest4neighbors(PathNode node, HashMapThingyMAbob map)
+    {
+        ArrayList<PathNode> temp;
+        temp = graph;
+        Haversine haversine = new Haversine();
+        Similiarities similiarities = new Similiarities();
+        for(int i = 0; i < temp.size(); i++)
+        {
+            //System.out.println("here");
+            double distance = haversine.getHaversine(node.getLatitude(), node.getLongitude(), temp.get(i).getLatitude(), temp.get(i).getLongitude());
+            temp.get(i).setDistance(distance);
+        }
+
+        Collections.sort(temp);
+        //printAllNodes();
+
+
+        /*find the 4 closest nodes*/
+
+            for(int i = 0; i < temp.size(); i++)
+            {
+                if(temp.get(i).getDistance() != 0)
+                {
+                    node.addEdge(new Edge(temp.get(i), node, similiarities.getOneCosineSimiliarity(node.getBusiness(), temp.get(i).getBusiness(), map)));
+
+                    if(node.getNeighbors().size() == 4)
+                    {
+                        break;
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+        /*
+        int count = 0;
+        while(count != 4)
+        {
+            int counter = 0;
+            PathNode min = temp.get(0);
+            for(int i = 1; i < temp.size(); i++)
+            {
+                if(min.getDistance() > temp.get(i).getDistance() && temp.get(i).getDistance() != 0)
+                {
+                    min = temp.get(i);
+                    counter = i;
+                }
+            }
+            node.addEdge(new Edge(min ,node, similiarities.getOneCosineSimiliarity(node.getBusiness(), min.getBusiness())));
+            count ++;
+        }
+
+         */
     }
 
     /*Initializes the arrays with business names, longitudes and latitudes*/
@@ -102,7 +173,20 @@ public class Graph
     {
         for(int i = 0; i < graph.size(); i++)
         {
-            System.out.println(i + ", " + graph.get(i).getBusiness() + " distance: " + graph.get(i).getDistance() + ", Cosine: " + graph.get(i).getSimilarity());
+            System.out.println(i + ", " + graph.get(i).getBusiness() + " distance: " + graph.get(i).getDistance() + ", Latitude: " + graph.get(i).getLatitude() + ", Longitude: " + graph.get(i).getLongitude());
+        }
+    }
+
+    public void printAllWithEdges()
+    {
+        for(int i = 0; i < graph.size(); i++)
+        {
+            System.out.print(i + ", " + graph.get(i).getBusiness() +  ", Latitude: " + graph.get(i).getLatitude() + ", Longitude: " + graph.get(i).getLongitude() + " EDGES: ");
+            for(int j = 0; j < graph.get(i).getNeighbors().size(); j++)
+            {
+                System.out.print("[Parent Node: " + graph.get(i).getNeighbors().get(j).getParent().getBusiness() + ", Destination Node: " + graph.get(i).getNeighbors().get(j).getDestination().getBusiness() + ", Weight: " + graph.get(i).getNeighbors().get(j).getWeight() + "] ");
+            }
+            System.out.println("\n");
         }
     }
 

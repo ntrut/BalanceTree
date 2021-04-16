@@ -2,19 +2,20 @@ package Project3;
 
 import java.util.ArrayList;
 
-public class PathNode
+public class PathNode implements Comparable<PathNode>
 {
-    private ArrayList<Edge> neighbors;
+    private ArrayList<Edge> neighbors = new ArrayList<Edge>();
     private String business;
+    private double latitude;
+    private double longitude;
     private double distance;
-    private double similarity;
 
 
-    public PathNode(String business, double distance, double similarity)
+    public PathNode(String business, double latitude, double longitude)
     {
         this.business = business;
-        this.distance = distance;
-        this.similarity = similarity;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public void addEdge(Edge e)
@@ -47,11 +48,37 @@ public class PathNode
         this.distance = distance;
     }
 
-    public double getSimilarity() {
-        return similarity;
+
+    public double getLatitude()
+    {
+        return latitude;
     }
 
-    public void setSimilarity(double similarity) {
-        this.similarity = similarity;
+    public void setLatitude(double latitude)
+    {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude()
+    {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude)
+    {
+        this.longitude = longitude;
+    }
+
+
+    public int compareTo(PathNode o)
+    {
+        double compare = o.getDistance();
+
+        if(this.getDistance() < compare)
+            return -1;
+        else if(this.getDistance() > compare)
+            return 1;
+        else
+            return 0;
     }
 }

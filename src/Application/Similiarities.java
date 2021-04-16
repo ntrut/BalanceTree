@@ -3,6 +3,7 @@ package Application;
 import com.company.HashMapThingyMAbob;
 import com.company.*;
 
+import java.nio.file.Path;
 import java.util.*;
 
 public class Similiarities
@@ -93,5 +94,48 @@ public class Similiarities
             array.add((String) enu.nextElement());
         }
         return array;
+    }
+
+    public double getOneCosineSimiliarity(String business, String business2, HashMapThingyMAbob map)
+    {
+        double cos = 0;
+        if(map.get(business) == null)
+        {
+            return 0;
+        }
+        if(map.get(business2) == null)
+        {
+            System.out.println("HEREok");
+            return 0;
+        }
+        /*get the array of the words in that business names review*/
+        Hashtable<String, Integer> input_business = map.get(business);
+        Hashtable<String, Integer> input_business2 = map.get(business2);
+
+        ArrayList<String> input_array = getArrayofFrequencies(input_business);
+
+        /*create a set, this will be all of the keys for the calculations*/
+        Set<String> hash_set = new HashSet<String>();
+        hash_set.addAll(input_array);
+
+        /*create my array of vectors that will be used for cosine*/
+        ArrayList<Integer> business_vector = new ArrayList<Integer>();
+        ArrayList<Integer> business2_vector = new ArrayList<Integer>();
+
+        for (String value : hash_set)
+        {
+            business_vector.add(input_business.getOrDefault(value, 0));
+            business2_vector.add(input_business2.getOrDefault(value, 0));
+        }
+
+        Cosine cosine = new Cosine();
+        cos = cosine.cosine_similarity(business_vector, business2_vector);
+
+        if(Double.isNaN(cos))
+        {
+            return 0;
+        }
+
+        return cos;
     }
 }

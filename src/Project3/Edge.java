@@ -1,5 +1,7 @@
 package Project3;
 
+import java.nio.file.Path;
+
 public class Edge
 {
     private PathNode destination;
@@ -8,10 +10,11 @@ public class Edge
     /*cosine similarity*/
     private double weight;
 
-    public Edge(PathNode destination, double weight)
+    public Edge(PathNode destination, PathNode parent, double weight)
     {
         this.destination = destination;
         this.weight = weight;
+        this.parent = parent;
     }
 
     public PathNode getDestination() {
