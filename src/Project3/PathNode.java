@@ -1,8 +1,9 @@
 package Project3;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class PathNode implements Comparable<PathNode>
+public class PathNode implements Comparable<PathNode>, Serializable
 {
     private ArrayList<Edge> neighbors = new ArrayList<Edge>();
     private String business;

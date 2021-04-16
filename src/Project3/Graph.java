@@ -6,12 +6,13 @@ import com.company.readReviewHashMap;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
 import java.util.Scanner;
 
-public class Graph
+public class Graph implements Serializable
 {
     ArrayList<PathNode> graph = new ArrayList<PathNode>();
     String[] business_names = new String[10000];

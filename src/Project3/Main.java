@@ -14,6 +14,7 @@ public class Main {
         //System.out.println(allCosines.toString());
 
         Haversine haversine = new Haversine();
+        GraphSerialization serialize = new GraphSerialization();
         double lat1 = 41.5007;
         double lon1 = 100;
         double lat2 = 70.6892;
@@ -22,12 +23,17 @@ public class Main {
 
         System.out.println(haversine.getHaversine(lat1, lon1, lat2, lon2));
         Graph graph = new Graph();
+        Graph graph1 = new Graph();
         graph.initailizeArrays();
         //graph.printAll();
         graph.initalizeNodes();
         //graph.printAllNodes();
         graph.initializeEdges();
-        graph.printAllWithEdges();
+        //graph.printAllWithEdges();
+        serialize.writeGraph(graph);
+        graph1 = serialize.readGraph();
+        graph1.printAllWithEdges();
+
 
 
 

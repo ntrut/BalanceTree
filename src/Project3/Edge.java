@@ -1,8 +1,9 @@
 package Project3;
 
+import java.io.Serializable;
 import java.nio.file.Path;
 
-public class Edge
+public class Edge implements Serializable
 {
     private PathNode destination;
     private PathNode parent;
