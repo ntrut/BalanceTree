@@ -3,6 +3,7 @@ package Project3;
 import Application.Similiarities;
 
 import java.io.FileNotFoundException;
+import java.nio.file.Path;
 import java.util.Hashtable;
 
 public class Main {
@@ -24,15 +25,21 @@ public class Main {
         System.out.println(haversine.getHaversine(lat1, lon1, lat2, lon2));
         Graph graph = new Graph();
         Graph graph1 = new Graph();
-        graph.initailizeArrays();
+        //graph.initailizeArrays();
         //graph.printAll();
-        graph.initalizeNodes();
+       // graph.initalizeNodes();
         //graph.printAllNodes();
-        graph.initializeEdges();
+        //graph.initializeEdges();
         //graph.printAllWithEdges();
-        serialize.writeGraph(graph);
+        //serialize.writeGraph(graph);
         graph1 = serialize.readGraph();
         graph1.printAllWithEdges();
+
+
+        Dijkstra test = new Dijkstra();
+        PathNode hello = new PathNode("Living Yoga", 40.1149289 ,-88.2385342);
+
+        test.dijkstras(graph1.getGraph().get(0), graph1.getGraph(), 0.17149858514250882);
 
 
 

@@ -64,6 +64,8 @@ public class Graph implements Serializable
             findClosest4neighbors(clone.get(i), map);
             System.out.println(i);
         }
+        /*so everything is in order like the text files*/
+        graph = clone;
     }
 
     public void findClosest4neighbors(PathNode node, HashMapThingyMAbob map)
@@ -82,9 +84,7 @@ public class Graph implements Serializable
         Collections.sort(temp);
         //printAllNodes();
 
-
         /*find the 4 closest nodes*/
-
             for(int i = 0; i < temp.size(); i++)
             {
                 if(temp.get(i).getDistance() != 0)
@@ -97,33 +97,6 @@ public class Graph implements Serializable
                     }
                 }
             }
-
-
-
-
-
-
-
-
-        /*
-        int count = 0;
-        while(count != 4)
-        {
-            int counter = 0;
-            PathNode min = temp.get(0);
-            for(int i = 1; i < temp.size(); i++)
-            {
-                if(min.getDistance() > temp.get(i).getDistance() && temp.get(i).getDistance() != 0)
-                {
-                    min = temp.get(i);
-                    counter = i;
-                }
-            }
-            node.addEdge(new Edge(min ,node, similiarities.getOneCosineSimiliarity(node.getBusiness(), min.getBusiness())));
-            count ++;
-        }
-
-         */
     }
 
     /*Initializes the arrays with business names, longitudes and latitudes*/
@@ -180,14 +153,14 @@ public class Graph implements Serializable
 
     public void printAllWithEdges()
     {
-        for(int i = 0; i < graph.size(); i++)
+        for(int i = 0; i < graph.size() - 9900; i++)
         {
             System.out.print(i + ", " + graph.get(i).getBusiness() +  ", Latitude: " + graph.get(i).getLatitude() + ", Longitude: " + graph.get(i).getLongitude() + " EDGES: ");
             for(int j = 0; j < graph.get(i).getNeighbors().size(); j++)
             {
-                System.out.print("[Parent Node: " + graph.get(i).getNeighbors().get(j).getParent().getBusiness() + ", Destination Node: " + graph.get(i).getNeighbors().get(j).getDestination().getBusiness() + ", Weight: " + graph.get(i).getNeighbors().get(j).getWeight() + "] ");
+                System.out.print("[Parent Node: " + graph.get(i).getNeighbors().get(j).getParent().getBusiness() + ", Destination Node: " + graph.get(i).getNeighbors().get(j).getDestination().getBusiness() + ", Weight: " + graph.get(i).getNeighbors().get(j).getWeight() + "]");
             }
-            System.out.println("\n");
+            System.out.println("");
         }
     }
 
