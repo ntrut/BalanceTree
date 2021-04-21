@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class PathNode implements Comparable<PathNode>, Serializable
 {
     private ArrayList<Edge> neighbors = new ArrayList<Edge>();
+    private PathNode parent;
     private String business;
     private double latitude;
     private double longitude;
@@ -70,6 +71,13 @@ public class PathNode implements Comparable<PathNode>, Serializable
         this.longitude = longitude;
     }
 
+    public PathNode getParent() {
+        return parent;
+    }
+
+    public void setParent(PathNode parent) {
+        this.parent = parent;
+    }
 
     public int compareTo(PathNode o)
     {

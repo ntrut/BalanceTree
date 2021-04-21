@@ -83,7 +83,7 @@ public class Load
                     /*put the key in array for the tree*/
                     names_array[index] = line;
                     line2 = line2.toLowerCase();
-                    line2 = cleanReview(line2, stopwords);
+                    //line2 = cleanReview(line2, stopwords);
                     //System.out.println(line + ": REVIEW: " + line2);
 
                     /*hashmap stuff*/

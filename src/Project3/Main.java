@@ -27,7 +27,7 @@ public class Main {
         Graph graph1 = new Graph();
         //graph.initailizeArrays();
         //graph.printAll();
-       // graph.initalizeNodes();
+        //graph.initalizeNodes();
         //graph.printAllNodes();
         //graph.initializeEdges();
         //graph.printAllWithEdges();
@@ -39,7 +39,12 @@ public class Main {
         Dijkstra test = new Dijkstra();
         PathNode hello = new PathNode("Living Yoga", 40.1149289 ,-88.2385342);
 
-        test.dijkstras(graph1.getGraph().get(0), graph1.getGraph(), 0.17149858514250882);
+        test.dijkstras(graph1.getGraph().get(0), graph1.getGraph(), 0.5644417031991836);
+        System.out.println();
+
+
+
+
 
 
 
