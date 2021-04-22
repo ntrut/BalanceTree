@@ -14,10 +14,11 @@ import java.util.Scanner;
 
 public class Graph implements Serializable
 {
-    ArrayList<PathNode> graph = new ArrayList<PathNode>();
-    String[] business_names = new String[10000];
-    Double[] latitudes_array = new Double[10000];
-    Double[] longitudes_array = new Double[10000];
+    private ArrayList<PathNode> graph = new ArrayList<PathNode>();
+    private ArrayList<Double> allCosine = new ArrayList<>();
+    private String[] business_names = new String[10000];
+    private Double[] latitudes_array = new Double[10000];
+    private Double[] longitudes_array = new Double[10000];
 
     /*This adds the nodes to the graph*/
     public void initalizeNodes()
@@ -89,7 +90,9 @@ public class Graph implements Serializable
             {
                 if(temp.get(i).getDistance() != 0)
                 {
-                    node.addEdge(new Edge(temp.get(i), node, similiarities.getOneCosineSimiliarity(node.getBusiness(), temp.get(i).getBusiness(), map)));
+                    double cosine = similiarities.getOneCosineSimiliarity(node.getBusiness(), temp.get(i).getBusiness(), map);
+                    node.addEdge(new Edge(temp.get(i), node, cosine));
+                    allCosine.add(cosine);
 
                     if(node.getNeighbors().size() == 4)
                     {
@@ -173,5 +176,13 @@ public class Graph implements Serializable
 
     public void setGraph(ArrayList<PathNode> graph) {
         this.graph = graph;
+    }
+
+    public ArrayList<Double> getAllCosine() {
+        return allCosine;
+    }
+
+    public void setAllCosine(ArrayList<Double> allCosine) {
+        this.allCosine = allCosine;
     }
 }

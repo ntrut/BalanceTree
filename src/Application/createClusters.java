@@ -28,11 +28,14 @@ public class createClusters
         /*do the steps 4-8 of the cluster process and repeat it 50,000 times*/
         System.out.println("******************************************************");
         clust.Repeat(nonmedoids);
+        /*
         for(int i =0; i < clust.getAllClusters().size(); i++)
         {
             System.out.print("[Cluster " + i + "] " + " ");
             clust.getAllClusters().get(i).print();
         }
+
+         */
 
         return clust.getAllClusters();
         //System.out.println("Medoid " + clust.getAllClusters().get(indexOfCluster-1).getMedoid() + " Closests: " + get5(clust.getAllClusters().get(indexOfCluster - 1)));

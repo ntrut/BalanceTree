@@ -1,10 +1,14 @@
 package Project3;
 
+import Application.Cluster;
 import Application.Similiarities;
+import Application.createClusters;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class Main {
 
@@ -16,6 +20,7 @@ public class Main {
 
         Haversine haversine = new Haversine();
         GraphSerialization serialize = new GraphSerialization();
+        createClusters clusters = new createClusters();
         double lat1 = 41.5007;
         double lon1 = 100;
         double lat2 = 70.6892;
@@ -34,26 +39,31 @@ public class Main {
         //serialize.writeGraph(graph);
         graph1 = serialize.readGraph();
         graph1.printAllWithEdges();
+        ArrayList<Cluster> allClusters = clusters.create(5, graph1.getAllCosine());
+        ArrayList<Double> allMedoids = new ArrayList<>();
+        for(int i = 0;i < allClusters.size(); i++)
+        {
+            System.out.println(allClusters.get(i).getMedoid());
+            allMedoids.add(allClusters.get(i).getMedoid());
+        }
 
 
         Dijkstra test = new Dijkstra();
         PathNode hello = new PathNode("Living Yoga", 40.1149289 ,-88.2385342);
 
-        test.dijkstras(graph1.getGraph().get(0), graph1.getGraph(), 0.5185449728701348);
-        System.out.println();
+        while(true)
+        {
+            System.out.print("Enter a Node: ");
+            Scanner k = new Scanner(System.in);
+            int input = k.nextInt();
+            if(input == -1)
+            {
+                break;
+            }
+            test.dijkstras(graph1.getGraph().get(input), graph1.getGraph(), allMedoids);
+            System.out.println();
+        }
 
-
-
-
-
-
-
-
-
-        //System.out.println(similiarities.getOneCosineSimiliarity("Panda Express", "Kelsey's Bar and Grill"));
-
-        /*----------------going to need to use all of the cosine values in my "allCosines" hashtable to create the clusters, but i only need it
-        * for the finding shortest path algo---------------*/
 
 
     }

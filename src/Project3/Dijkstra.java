@@ -1,13 +1,15 @@
 package Project3;
 
+import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.util.*;
 
 public class Dijkstra
 {
-        public void dijkstras(PathNode node, ArrayList<PathNode> graph, double CosineTest)
+        public void dijkstras(PathNode node, ArrayList<PathNode> graph, ArrayList<Double> allMedoids)
         {
             PathNode target = null;
+            ArrayList<PathNode> foundNodes = new ArrayList<>();
             HashMap<PathNode, Double> Distances = new HashMap<>();
             ArrayList<PathNode> visited = new ArrayList<>();
             ArrayList<PathNode> unvisited = new ArrayList<>(graph);
@@ -34,18 +36,13 @@ public class Dijkstra
                 for(int i = 0; i < current.getNeighbors().size(); i++)
                 {
                     /*check to see if we found the cosine value equal to the destination cosine value*/
-
-                    if(current.getNeighbors().get(i).getWeight() == CosineTest)
+                    if(checkIfFound(current.getNeighbors().get(i).getWeight(), allMedoids))
                     {
                         target = current.getNeighbors().get(i).getDestination();
+                        foundNodes.add(target);
                         System.out.println("FOUND!");
 
                     }
-
-                    /*check if that node has been already visited*/
-                    //if(!visited.contains(current.getNeighbors().get(i).getDestination()))
-                    //{
-
                         /*check to see if the new value is smaller than the current value
                         * if the new value is smaller, then we replace the destination node with the smaller value
                         * meaning we found a shorter path to that node*/
@@ -64,7 +61,6 @@ public class Dijkstra
                         //System.out.println(Distances.get(current));
                         //System.out.println(current.getNeighbors().get(i).getWeight());
                         //System.out.println(Distances.get(current.getNeighbors().get(i).getDestination()));
-                    //}
                 }
 
                 visited.add(current);
@@ -72,8 +68,6 @@ public class Dijkstra
 
                 while(backTrace(current, visited))
                 {
-                    //System.out.println("second " + current.getBusiness());
-                    //System.out.println("Parent: " + PreviousNode.get(current).getBusiness());
                     /*all paths have been visited and we are back at our original node with no more paths to visit*/
                     if(PreviousNode.get(current) == null)
                     {
@@ -83,7 +77,8 @@ public class Dijkstra
                         }
                         else
                         {
-                            printPath(node, target, PreviousNode);
+                            PathNode bestpath = bestPath(foundNodes, Distances);
+                            printPath(node, bestpath, PreviousNode);
                         }
 
                         return;
@@ -144,6 +139,7 @@ public class Dijkstra
 
         public void printPath(PathNode original, PathNode target, HashMap<PathNode, PathNode> PreviousNode)
         {
+
             while(true)
             {
                 if(target == null)
@@ -155,6 +151,34 @@ public class Dijkstra
                 target = PreviousNode.get(target);
             }
             System.out.println("BEGIN");
+        }
+
+        /*check if the current weight is equal to any medoid*/
+        public boolean checkIfFound(double weight, ArrayList<Double> allMedoids)
+        {
+            for(int i = 0; i < allMedoids.size(); i++)
+            {
+                if(allMedoids.get(i) == weight)
+                {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
+        /*find the smallest path out of all found medoids*/
+        public PathNode bestPath(ArrayList<PathNode> foundNodes, HashMap<PathNode, Double> Distances )
+        {
+            PathNode min = foundNodes.get(0);
+            for(int i = 0; i <  foundNodes.size(); i++)
+            {
+                if(Distances.get(foundNodes.get(i)) < Distances.get(min))
+                {
+                    min = foundNodes.get(i);
+                }
+            }
+            return min;
         }
 
 }
