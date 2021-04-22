@@ -39,7 +39,7 @@ public class Main {
         Dijkstra test = new Dijkstra();
         PathNode hello = new PathNode("Living Yoga", 40.1149289 ,-88.2385342);
 
-        test.dijkstras(graph1.getGraph().get(0), graph1.getGraph(), 0.5644417031991836);
+        test.dijkstras(graph1.getGraph().get(0), graph1.getGraph(), 0.5185449728701348);
         System.out.println();
 
 
