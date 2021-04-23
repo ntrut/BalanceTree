@@ -1,14 +1,12 @@
 package Project3;
 
-import java.lang.reflect.Array;
-import java.nio.file.Path;
 import java.util.*;
 
 public class Dijkstra
 {
         private HashMap<PathNode, PathNode> DisjointsCheck = new HashMap<>();
 
-        public void dijkstras(PathNode node, ArrayList<PathNode> graph, ArrayList<Double> allMedoids)
+        public String dijkstras(PathNode node, ArrayList<PathNode> graph, ArrayList<Double> allMedoids)
         {
             PathNode target = null;
             ArrayList<PathNode> foundNodes = new ArrayList<>();
@@ -76,15 +74,14 @@ public class Dijkstra
                     {
                         if(target == null)
                         {
-                            System.out.println("No shortest path found");
+                            return "No shortest path found";
                         }
                         else
                         {
                             PathNode bestpath = bestPath(foundNodes, Distances);
-                            printPath(node, bestpath, PreviousNode);
+                            return printPath(node, bestpath, PreviousNode);
                         }
 
-                        return;
                     }
 
                     current = current.getParent();
@@ -123,6 +120,7 @@ public class Dijkstra
                     }
 
                 }
+            return null;
         }
 
         /*if all edges destination already been visited, then return true
@@ -140,20 +138,21 @@ public class Dijkstra
             return true;
         }
 
-        public void printPath(PathNode original, PathNode target, HashMap<PathNode, PathNode> PreviousNode)
+        public String printPath(PathNode original, PathNode target, HashMap<PathNode, PathNode> PreviousNode)
         {
-
+            String answer = "";
             while(true)
             {
                 if(target == null)
                 {
                     break;
                 }
-
-                System.out.print(target.getBusiness() + " <--- ");
+                answer = " ---> " + target.getBusiness() + answer;
                 target = PreviousNode.get(target);
             }
-            System.out.println("BEGIN");
+            System.out.println(answer);
+            return answer = "BEGIN " + answer;
+
         }
 
         /*check if the current weight is equal to any medoid*/

@@ -14,21 +14,10 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
 
-        Similiarities similiarities = new Similiarities();
-        Hashtable<String, Double> allCosines = similiarities.getSimiliartiy("Panda Express", 10, 0);
-        //System.out.println(allCosines.toString());
-
-        Haversine haversine = new Haversine();
         GraphSerialization serialize = new GraphSerialization();
         createClusters clusters = new createClusters();
-        double lat1 = 41.5007;
-        double lon1 = 100;
-        double lat2 = 70.6892;
-        double lon2 = 0;
 
-
-        System.out.println(haversine.getHaversine(lat1, lon1, lat2, lon2));
-        Graph graph = new Graph();
+        //Graph graph = new Graph();
         Graph graph1 = new Graph();
         //graph.initailizeArrays();
         //graph.printAll();
@@ -49,11 +38,10 @@ public class Main {
 
 
         Dijkstra test = new Dijkstra();
-        PathNode hello = new PathNode("Living Yoga", 40.1149289 ,-88.2385342);
         Disjoint joint = new Disjoint();
-        System.out.println(joint.findDisjointSets(graph1, test, allMedoids));
-        System.out.println(test.getDisjointsCheck().size());
-        /*
+        //System.out.println(joint.findDisjointSets(graph1, test, allMedoids));
+        //System.out.println(test.getDisjointsCheck().size());
+
         while(true)
         {
             System.out.print("Enter a Node: ");
@@ -63,13 +51,11 @@ public class Main {
             {
                 break;
             }
-            test.dijkstras(graph1.getGraph().get(input), graph1.getGraph(), allMedoids);
+            System.out.println(test.dijkstras(graph1.getGraph().get(input), graph1.getGraph(), allMedoids));
             System.out.println();
         }
         System.out.println(test.getDisjointsCheck());
         System.out.println(test.getDisjointsCheck().size());
-
-         */
 
 
 

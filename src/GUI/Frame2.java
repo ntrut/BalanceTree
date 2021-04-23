@@ -2,11 +2,14 @@ package GUI;
 
 import Application.FinalAwnser;
 import Application.Similiarities;
+import Project3.Dijkstra;
+import Project3.Graph;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Frame2 extends JFrame implements ActionListener
 {
@@ -17,32 +20,44 @@ public class Frame2 extends JFrame implements ActionListener
     final JButton button;
     final JPanel panel4;
     final JTextArea output;
+    private Graph graph1;
+    private ArrayList<Double> allMedoids;
 
-    public Frame2() throws HeadlessException
+    public Frame2(Graph graph1, ArrayList<Double> allMedoids) throws HeadlessException
     {
+        this.graph1 = graph1;
+        this.allMedoids = allMedoids;
 
         JLabel text = new JLabel();
-        text.setText("Business Name: ");
+        text.setText("Enter Node[1-1000]: ");
         text.setFont(new Font("Courier", Font.BOLD, 15));
-        text.setBounds(67,15,200,75);
+        text.setBounds(35,15,200,75);
 
+        /*
         JLabel textk = new JLabel();
         textk.setText("Value k: ");
         textk.setFont(new Font("Courier", Font.BOLD, 15));
         textk.setBounds(120,80,200,75);
 
+         */
+
+        /*
         JLabel textCluster = new JLabel();
         textCluster.setText("Cluster Index: ");
         textCluster.setFont(new Font("Courier", Font.BOLD, 15));
         textCluster.setBounds(70,155,200,75);
         //text.setVerticalAlignment(JLabel.TOP);
 
+         */
 
 
+        /*
         JLabel text2 = new JLabel();
         text2.setText("Similarities: ");
         text2.setBounds(0,0,50,75);
         text2.setHorizontalAlignment(JLabel.RIGHT);
+
+         */
 
         /*Textfield for the input*/
         textFieldClusterIndex = new JTextField();
@@ -59,6 +74,10 @@ public class Frame2 extends JFrame implements ActionListener
         output.setFont(new Font("Courier", Font.PLAIN, 14));
         output.setEditable(false);
         output.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        JScrollPane scroll = new JScrollPane(output);
+        scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scroll.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroll.setBounds(200,150,550,300);
 
 
         /*business name panel*/
@@ -79,11 +98,13 @@ public class Frame2 extends JFrame implements ActionListener
         panel5.setBackground(Color.DARK_GRAY);
         panel5.setLayout(new BorderLayout());
 
-        /*Textfield panel*/
+        /*
+
         JPanel panel6 = new JPanel();
         panel6.setBounds(200,175,400,40);
         panel6.setBackground(Color.PINK);
         panel6.setLayout(new BorderLayout());
+        */
 
 
         /*Text output panel*/
@@ -94,36 +115,33 @@ public class Frame2 extends JFrame implements ActionListener
         /*output for all of the businesses names panel*/
         panel4 = new JPanel();
         panel4.setBackground(Color.WHITE);
-        panel4.setBounds(200,250,550,300);
+        panel4.setBounds(200,150,550,300);
         panel4.setLayout(new BorderLayout());
 
 
         /*Button for submit*/
         button = new JButton("Submit");
-        button.setBounds(620,100,100,40);
+        button.setBounds(620,40,100,40);
         button.addActionListener(this);
 
         /*default*/
         panel.add(text);
-        panel.add(textk);
-        panel.add(textCluster);
+        //panel.add(textk);
         panel2.add(textField);
-        panel3.add(text2);
-        panel4.add(output);
-        panel5.add(forK);
-        panel6.add(textFieldClusterIndex);
+        //panel3.add(text2);
+        panel4.add(scroll);
+        //panel5.add(forK);
         this.setTitle("365 Assignment 1");
         this.add(button);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setSize(800,600);
-        this.setVisible(true);
         this.add(panel);
         this.add(panel2);
         this.add(panel3);
         this.add(panel4);
-        this.add(panel5);
-        this.add(panel6);
+        //this.add(panel5);
+        this.setVisible(true);
     }
 
     @Override
@@ -133,12 +151,13 @@ public class Frame2 extends JFrame implements ActionListener
         {
             output.selectAll();
             output.replaceSelection("");
-            String inputText = textField.getText();
-            int clusterIndex = Integer.parseInt(textFieldClusterIndex.getText());
-            int valueK = Integer.parseInt(forK.getText());
-            Similiarities test = new Similiarities();
-
-            System.gc();
+            int inputText = Integer.parseInt(textField.getText());
+            //int clusterIndex = Integer.parseInt(textFieldClusterIndex.getText());
+            //int valueK = Integer.parseInt(forK.getText());
+            Dijkstra dijkstra = new Dijkstra();
+            String path = dijkstra.dijkstras(graph1.getGraph().get(inputText), graph1.getGraph(), allMedoids);
+            output.append(path);
+            //System.gc();
 
         }
     }
@@ -147,6 +166,7 @@ public class Frame2 extends JFrame implements ActionListener
     {
         output.setText("Searching for similarity...\n");
     }
+
 }
 
 

@@ -156,7 +156,7 @@ public class Graph implements Serializable
 
     public void printAllWithEdges()
     {
-        for(int i = 0; i < graph.size() - 9900; i++)
+        for(int i = 0; i < graph.size(); i++)
         {
             System.out.print(i + ", " + graph.get(i).getBusiness() +  ", Latitude: " + graph.get(i).getLatitude() + ", Longitude: " + graph.get(i).getLongitude() + " EDGES: ");
             for(int j = 0; j < graph.get(i).getNeighbors().size(); j++)
