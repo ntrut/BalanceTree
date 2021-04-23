@@ -90,4 +90,5 @@ public class PathNode implements Comparable<PathNode>, Serializable
         else
             return 0;
     }
+
 }

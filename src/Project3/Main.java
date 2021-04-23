@@ -50,7 +50,10 @@ public class Main {
 
         Dijkstra test = new Dijkstra();
         PathNode hello = new PathNode("Living Yoga", 40.1149289 ,-88.2385342);
-
+        Disjoint joint = new Disjoint();
+        System.out.println(joint.findDisjointSets(graph1, test, allMedoids));
+        System.out.println(test.getDisjointsCheck().size());
+        /*
         while(true)
         {
             System.out.print("Enter a Node: ");
@@ -63,6 +66,10 @@ public class Main {
             test.dijkstras(graph1.getGraph().get(input), graph1.getGraph(), allMedoids);
             System.out.println();
         }
+        System.out.println(test.getDisjointsCheck());
+        System.out.println(test.getDisjointsCheck().size());
+
+         */
 
 
 

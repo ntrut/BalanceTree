@@ -6,6 +6,8 @@ import java.util.*;
 
 public class Dijkstra
 {
+        private HashMap<PathNode, PathNode> DisjointsCheck = new HashMap<>();
+
         public void dijkstras(PathNode node, ArrayList<PathNode> graph, ArrayList<Double> allMedoids)
         {
             PathNode target = null;
@@ -33,6 +35,7 @@ public class Dijkstra
             {
 
                 System.out.println("We are Currently at " + current.getBusiness());
+                DisjointsCheck.put(current, current);
                 for(int i = 0; i < current.getNeighbors().size(); i++)
                 {
                     /*check to see if we found the cosine value equal to the destination cosine value*/
@@ -181,4 +184,12 @@ public class Dijkstra
             return min;
         }
 
+        /*------------------GETTERS & SETTERS-------------------*/
+        public HashMap<PathNode, PathNode> getDisjointsCheck() {
+            return DisjointsCheck;
+        }
+
+        public void setDisjointsCheck(HashMap<PathNode, PathNode> disjointsCheck) {
+            DisjointsCheck = disjointsCheck;
+        }
 }
