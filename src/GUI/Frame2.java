@@ -3,6 +3,7 @@ package GUI;
 import Application.FinalAwnser;
 import Application.Similiarities;
 import Project3.Dijkstra;
+import Project3.Disjoint;
 import Project3.Graph;
 
 import javax.swing.*;
@@ -156,6 +157,8 @@ public class Frame2 extends JFrame implements ActionListener
             //int valueK = Integer.parseInt(forK.getText());
             Dijkstra dijkstra = new Dijkstra();
             String path = dijkstra.dijkstras(graph1.getGraph().get(inputText), graph1.getGraph(), allMedoids);
+            Disjoint disjoint = new Disjoint();
+            output.append(String.valueOf(disjoint.findDisjointSets(graph1, dijkstra, allMedoids)) + "\n");
             output.append(path);
             //System.gc();
 

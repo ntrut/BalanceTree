@@ -41,7 +41,7 @@ public class Dijkstra
                     {
                         target = current.getNeighbors().get(i).getDestination();
                         foundNodes.add(target);
-                        System.out.println("FOUND!");
+                        System.out.println("FOUND! at " + target.getBusiness() + " with the cosine " + current.getNeighbors().get(i).getWeight());
 
                     }
                         /*check to see if the new value is smaller than the current value
